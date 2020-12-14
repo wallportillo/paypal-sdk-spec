@@ -21,8 +21,8 @@ The following are considered out of scope for this specification:
 
 ### Standards
 
-- Specifications
-- Platform and Language support
+- [Specifications](./standards/specifications.md)
+- [Platform and Language support](./standards/platform-language.md)
 
 ### SDK Initialization
 
