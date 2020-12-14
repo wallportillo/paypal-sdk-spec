@@ -32,7 +32,7 @@ The following are considered out of scope for this specification:
 ### SDK Components
 
 - Buttons
-- Checkout
+- [Checkout](./components/checkout/index.md)
 - Marks
 - Card Fields
 - Messages
