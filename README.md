@@ -23,6 +23,8 @@ The following are considered out of scope for this specification:
 
 - [Specifications](./standards/specifications.md)
 - [Platform and Language support](./standards/platform-language.md)
+- [Components](./standards/components.md)
+- RFCs
 
 ### SDK Initialization
 
