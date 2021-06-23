@@ -75,6 +75,9 @@ component.close();
 
 // Clone
 component.clone().render('#different_container');
+
+// Custom operation
+component.doCustomThing();
 ```
 
 #### Promise
