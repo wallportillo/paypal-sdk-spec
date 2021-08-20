@@ -1,0 +1,28 @@
+{
+  "name": "paypal-sdk-spec",
+  "version": "1.0.0",
+  "description": "PayPal SDK Spec",
+  "main": "index.js",
+  "scripts": {
+    "start": "mdstart $(pwd)/README.md",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "mkdir -p './node_modules/md-fileserver/node_modules' && cp -r './node_modules/highlight.js' './node_modules/md-fileserver/node_modules/highlight.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paypal/paypal-sdk-spec.git"
+  },
+  "keywords": [
+    "paypal",
+    "sdk"
+  ],
+  "author": "bluepnume",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paypal/paypal-sdk-spec/issues"
+  },
+  "homepage": "https://github.com/paypal/paypal-sdk-spec#readme",
+  "dependencies": {
+    "md-fileserver": "^1.8.0"
+  }
+}
