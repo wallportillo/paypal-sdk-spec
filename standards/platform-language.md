@@ -1,4 +1,4 @@
-# Platform and Language support
+# Platform and Language Support
 
 ## Platform Support
 
@@ -20,11 +20,11 @@
 
 ### iOS
 
-- iOS version X and later
+- iOS version __TODO__ and later
 
 ### Android
 
-- Android version X and later
+- Android version __TODO__ and later
 
 ## Language Support
 
