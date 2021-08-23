@@ -20,6 +20,6 @@ The following are considered out of scope for this specification:
 
 ## Contents
 
-- [Standards](./standards/index.md)
-- [Client SDKs](./client/index.md)
-- [Server SDKs](./server/index.md)
+- [Standards](./spec/standards/index.md)
+- [Client SDKs](./spec/client/index.md)
+- [Server SDKs](./spec/server/index.md)

@@ -90,6 +90,15 @@ Example:
 <script src="https://www.paypal.com/sdk/js?client-id=test&components=buttons,card-fields"></script>
 ```
 
+#### Buyer Country
+
+- Optional
+- Default: buyer ip geolocation
+
+Pass in a custom country to inform the SDK of the geolocation of the user. Used primarily for eligibility.
+
+See [Country Support](./support/countries.md)
+
 #### Data Attribute Parameters
 
 ##### Merchant IDs
