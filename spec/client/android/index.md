@@ -59,29 +59,28 @@ Create a `CardPayments` instance to create orders using a `Card` object.
 #### Create Card Orders With DropIn UI
 
 ```kotlin
+suspend fun createCardOrder() {
   val cardForm = findViewById(R.id.card_form) as CardForm
-
   cardForm.card?.let { card ->
-    withContext(Dispachers.IO) {
-      val order = CardOrder(card, "1.00")
-      val orderID = cardPayments.createOrder(order)
-      // send orderID to your server
-    }
+    val order = CardOrder(card, "1.00")
+    val orderID = cardPayments.createOrder(order)
+    // send orderID to your server
   }
+}
 ```
 
 #### Create Card Orders With Custom UI
 
 ```kotlin
+suspend fun createCardOrder() {
   val card = Card().apply {
     number = "4111111111111111"
     expirationDate = "02/24"
     securityCode = "123"
   }
 
-  withContext(Dispachers.IO) {
-    val order = CardOrder(card, "1.00")
-    val orderID = cardPayments.createOrder(order)
-    // send orderID to your server
-  }
+  val order = CardOrder(card, "1.00")
+  val orderID = cardPayments.createOrder(order)
+  // send orderID to your server
+}
 ```
