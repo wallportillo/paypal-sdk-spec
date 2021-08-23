@@ -10,45 +10,69 @@ The PayPal Android SDK is composed of set of invidual modules. Each feature modu
 
 ### Use DropIn UI for a Quick Start
 
+There are several UI components available to help merchants get started quickly.
+
+#### Card Form
+
+The `CardForm` component is useful for merchants who are looking for a fullscreen card entry form.
+
 ```xml
   <CardForm
     android:id="@+id/card_form" />
 ```
+
+#### CardNumberTextField
+
+The `CardNumberTextField` component is useful for merchants who want a plain text field with card number autoformatting and card brand detection capabilities, but want to have more control of the layout of the field itself.
 
 ```xml
   <CardNumberTextField
     android:id="@+id/card_number_text_field" />
 ```
 
+#### CardNumberExpirationDateTextField
+
+The `CardNumberExpirationDateTextField` component gives merchants an expiration date field that helps guide the user to perform proper data entry of a credit card expiration date.
+
 ```xml
   <CardExpirationDateTextField
     android:id="@+id/card_expiration_date_text_field" />
 ```
+
+#### CardSecurityCodeTextField
+
+The `CardSecurityCodeTextField` component is a self-validating secure text field that can be configured to validate against a particular card brand to ensure that the correct number of digits has been entered by the user.
 
 ```xml
   <CardSecurityCodeTextField
     android:id="@+id/card_security_code_text_field" />
 ```
 
-### Create Card Orders With DropIn UI
+### Create Card Orders
+
+Create a `CardPayments` instance to create orders using a `Card` object.
+
+```kotlin
+  val cardPayments = CardPayments(<AUTH_CREDENTIALS>)
+```
+
+##### Create Card Orders With DropIn UI
 
 ```kotlin
   val cardForm = findViewById(R.id.card_form) as CardForm
 
-  val cardPayments = CardPayments(<AUTH_CREDENTIALS>)
   cardForm.card?.let { card ->
     withContext(Dispachers.IO) {
-      val orderID = cardPayments.createOrder(card)
+      val order = CardOrder(card, "1.00")
+      val orderID = cardPayments.createOrder(order)
       // send orderID to your server
     }
   }
 ```
 
-### Create Card Orders With Custom UI
+#### Create Card Orders With Custom UI
 
 ```kotlin
-  val cardPayments = CardPayments(<AUTH_CREDENTIALS>)
-
   val card = Card().apply {
     number = "4111111111111111"
     expirationDate = "02/24"
@@ -56,7 +80,8 @@ The PayPal Android SDK is composed of set of invidual modules. Each feature modu
   }
 
   withContext(Dispachers.IO) {
-    val orderID = cardPayments.createOrder(card)
+    val order = CardOrder(card, "1.00")
+    val orderID = cardPayments.createOrder(order)
     // send orderID to your server
   }
 ```
