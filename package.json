@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "mdstart $(pwd)/README.md",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "postinstall": "mkdir -p './node_modules/md-fileserver/node_modules' && cp -r './node_modules/highlight.js' './node_modules/md-fileserver/node_modules/highlight.js'"
   },
   "repository": {
@@ -24,5 +24,11 @@
   "homepage": "https://github.com/paypal/paypal-sdk-spec#readme",
   "dependencies": {
     "md-fileserver": "^1.8.0"
+  },
+  "devDependencies": {
+    "fs-extra": "^10.0.0",
+    "jest": "^27.0.6",
+    "klaw-sync": "^6.0.0",
+    "markdown": "^0.5.0"
   }
 }
