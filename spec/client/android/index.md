@@ -39,7 +39,7 @@ The PayPal Android SDK is composed of set of invidual modules. Each feature modu
   cardForm.card?.let { card ->
     withContext(Dispachers.IO) {
       val orderID = cardPayments.createOrder(card)
-      // send order to your server
+      // send orderID to your server
     }
   }
 ```
@@ -57,6 +57,6 @@ The PayPal Android SDK is composed of set of invidual modules. Each feature modu
 
   withContext(Dispachers.IO) {
     val orderID = cardPayments.createOrder(card)
-    // send order to your server
+    // send orderID to your server
   }
 ```
