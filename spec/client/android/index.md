@@ -1,28 +1,34 @@
 # Android
 
-## Card
+## Card Payments
 
 ```gradle
   implementation "com.paypal.android:card:$latestVersion"
 ```
 
+## Use DropIn UI for a Quick Start
+
 ```xml
-  <CardForm />
+  <CardForm
+    android:id="@+id/card_form" />
 ```
 
 ```xml
-  <CardNumberTextField />
+  <CardNumberTextField
+    android:id="@+id/card_number_text_field" />
 ```
 
 ```xml
-  <CardExpirationDateTextField />
+  <CardExpirationDateTextField
+    android:id="@+id/card_expiration_date_text_field" />
 ```
 
 ```xml
-  <CardSecurityCodeTextField />
+  <CardSecurityCodeTextField
+    android:id="@+id/card_security_code_text_field" />
 ```
 
-## With DropIn UI
+## Create Orders With DropIn UI
 
 ```kotlin
   val cardForm = findViewById(R.id.card_form) as CardForm
@@ -36,7 +42,7 @@
   }
 ```
 
-## With Custom UI
+## Create Orders With Custom UI
 
 ```kotlin
   val cardPayments = CardPayments(<AUTH_CREDENTIALS>)
