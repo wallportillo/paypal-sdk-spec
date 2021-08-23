@@ -14,7 +14,7 @@ There are several UI components available to help merchants get started quickly:
 
 #### Card Form
 
-This component is useful for merchants who are looking for a fullscreen card entry form.
+A full-featured credit card entry form.
 
 ```xml
   <CardForm
@@ -23,7 +23,7 @@ This component is useful for merchants who are looking for a fullscreen card ent
 
 #### CardNumberTextField
 
-This component is useful for merchants who want a plain text field with card number autoformatting and card brand detection capabilities, but want to have more control of the layout of the field itself.
+A plain text field with card brand detection and card number autoformatting.
 
 ```xml
   <CardNumberTextField
@@ -32,7 +32,7 @@ This component is useful for merchants who want a plain text field with card num
 
 #### CardNumberExpirationDateTextField
 
-This component gives merchants an expiration date field that helps guide the user to perform proper data entry of a credit card expiration date.
+A numeric text field with MM/YY or MM/YYYY autoformatting. 
 
 ```xml
   <CardExpirationDateTextField
@@ -41,7 +41,7 @@ This component gives merchants an expiration date field that helps guide the use
 
 #### CardSecurityCodeTextField
 
-This component is a self-validating secure text field that can be configured to validate against a particular card brand to ensure that the correct number of digits has been entered by the user.
+A card brand aware self validating secure numeric text field.
 
 ```xml
   <CardSecurityCodeTextField
