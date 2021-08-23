@@ -1,5 +1,7 @@
 # Android
 
+The PayPal Android SDK is composed of set of invidual modules. Each feature module provides support for a specific payment method. Merchants decide which payment methods their app will support by importing a select set of modules.
+
 ## Card Payments
 
 ```gradle
