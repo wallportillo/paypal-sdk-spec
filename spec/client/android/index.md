@@ -10,11 +10,11 @@ The PayPal Android SDK is composed of set of invidual modules. Each feature modu
 
 ### Use DropIn UI for a Quick Start
 
-There are several UI components available to help merchants get started quickly.
+There are several UI components available to help merchants get started quickly:
 
 #### Card Form
 
-The `CardForm` component is useful for merchants who are looking for a fullscreen card entry form.
+This component is useful for merchants who are looking for a fullscreen card entry form.
 
 ```xml
   <CardForm
@@ -23,7 +23,7 @@ The `CardForm` component is useful for merchants who are looking for a fullscree
 
 #### CardNumberTextField
 
-The `CardNumberTextField` component is useful for merchants who want a plain text field with card number autoformatting and card brand detection capabilities, but want to have more control of the layout of the field itself.
+This component is useful for merchants who want a plain text field with card number autoformatting and card brand detection capabilities, but want to have more control of the layout of the field itself.
 
 ```xml
   <CardNumberTextField
@@ -32,7 +32,7 @@ The `CardNumberTextField` component is useful for merchants who want a plain tex
 
 #### CardNumberExpirationDateTextField
 
-The `CardNumberExpirationDateTextField` component gives merchants an expiration date field that helps guide the user to perform proper data entry of a credit card expiration date.
+This component gives merchants an expiration date field that helps guide the user to perform proper data entry of a credit card expiration date.
 
 ```xml
   <CardExpirationDateTextField
@@ -41,7 +41,7 @@ The `CardNumberExpirationDateTextField` component gives merchants an expiration 
 
 #### CardSecurityCodeTextField
 
-The `CardSecurityCodeTextField` component is a self-validating secure text field that can be configured to validate against a particular card brand to ensure that the correct number of digits has been entered by the user.
+This component is a self-validating secure text field that can be configured to validate against a particular card brand to ensure that the correct number of digits has been entered by the user.
 
 ```xml
   <CardSecurityCodeTextField
@@ -56,7 +56,7 @@ Create a `CardPayments` instance to create orders using a `Card` object.
   val cardPayments = CardPayments(<AUTH_CREDENTIALS>)
 ```
 
-##### Create Card Orders With DropIn UI
+#### Create Card Orders With DropIn UI
 
 ```kotlin
   val cardForm = findViewById(R.id.card_form) as CardForm
