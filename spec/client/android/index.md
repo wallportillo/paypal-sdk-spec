@@ -12,7 +12,7 @@ The PayPal Android SDK is composed of set of invidual modules. Each feature modu
 
 There are several UI components available to help merchants get started quickly:
 
-#### Card Form
+#### `CardForm`
 
 A full-featured credit card entry form.
 
@@ -21,7 +21,7 @@ A full-featured credit card entry form.
     android:id="@+id/card_form" />
 ```
 
-#### CardNumberTextField
+#### `CardNumberTextField`
 
 A plain text field with card brand detection and card number autoformatting.
 
@@ -30,7 +30,7 @@ A plain text field with card brand detection and card number autoformatting.
     android:id="@+id/card_number_text_field" />
 ```
 
-#### CardNumberExpirationDateTextField
+#### `CardNumberExpirationDateTextField`
 
 A numeric text field with MM/YY or MM/YYYY autoformatting. 
 
@@ -39,7 +39,7 @@ A numeric text field with MM/YY or MM/YYYY autoformatting.
     android:id="@+id/card_expiration_date_text_field" />
 ```
 
-#### CardSecurityCodeTextField
+#### `CardSecurityCodeTextField`
 
 A card brand aware self validating secure numeric text field.
 
