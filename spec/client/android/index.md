@@ -2,13 +2,13 @@
 
 The PayPal Android SDK is composed of set of invidual modules. Each feature module provides support for a specific payment method. Merchants decide which payment methods their app will support by importing a select set of modules.
 
-## Card Payments
+## Feature: Card
 
 ```gradle
   implementation "com.paypal.android:card:$latestVersion"
 ```
 
-## Use DropIn UI for a Quick Start
+### Use DropIn UI for a Quick Start
 
 ```xml
   <CardForm
@@ -30,7 +30,7 @@ The PayPal Android SDK is composed of set of invidual modules. Each feature modu
     android:id="@+id/card_security_code_text_field" />
 ```
 
-## Create Orders With DropIn UI
+### Create Card Orders With DropIn UI
 
 ```kotlin
   val cardForm = findViewById(R.id.card_form) as CardForm
@@ -44,7 +44,7 @@ The PayPal Android SDK is composed of set of invidual modules. Each feature modu
   }
 ```
 
-## Create Orders With Custom UI
+### Create Card Orders With Custom UI
 
 ```kotlin
   val cardPayments = CardPayments(<AUTH_CREDENTIALS>)
