@@ -1,13 +1,12 @@
 
 const { join, dirname } = require('path');
 const { existsSync } = require('fs-extra');
-const { findAllFiles, markdownParseFile, markdownWalk } = require('./util');
+const { findAllFiles, markdownParseFile, markdownGetAllLinks } = require('./util');
+const { SPEC_ROOT, SPEC_EXTENSION } = require('./constants');
 
-const ROOT = join(__dirname, '..');
-
-for (const path of findAllFiles(ROOT, 'md')) {
+for (const path of findAllFiles(SPEC_ROOT, SPEC_EXTENSION)) {
     test(`Valid links in ${ path }`, () => {
-        for (const [ , { href } ] of markdownWalk(markdownParseFile(path), 'link')) {
+        for (const href of markdownGetAllLinks(markdownParseFile(path))) {
             if (href.indexOf('.') !== 0 && href.indexOf('/') !== 0) {
                 continue;
             }
@@ -18,8 +17,8 @@ for (const path of findAllFiles(ROOT, 'md')) {
                 throw new Error(`File does not exist: ${ fullPath }`);
             }
 
-            if (!fullPath.match(/.md$/)) {
-                throw new Error(`Not a markdown file: ${ fullPath }`);
+            if (!fullPath.endsWith(`.${ SPEC_EXTENSION }`)) {
+                throw new Error(`Not a .${ SPEC_EXTENSION } file: ${ fullPath }`);
             }
         }
     });

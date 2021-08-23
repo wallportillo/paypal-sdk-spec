@@ -9,10 +9,6 @@ module.exports.findAllFiles = (dir, extension) => {
         nodir: true,
         traverseAll: true,
         filter: ({ path }) => {
-            if (path.includes('/node_modules/')) {
-                return false;
-            }
-
             if (extension && !path.match(new RegExp(`.${ extension }$`))) {
                 return false;
             }
@@ -22,6 +18,18 @@ module.exports.findAllFiles = (dir, extension) => {
     }).map(({ path }) => {
         return path;
     });
+};
+
+module.exports.findAllDirectories = (dir) => {
+    return [
+        dir,
+        ...klawSync(dir, {
+            nofile: true,
+            traverseAll: true
+        }).map(({ path }) => {
+            return path;
+        })
+    ];
 };
 
 module.exports.markdownParseFile = (path) => {
@@ -41,3 +49,13 @@ module.exports.markdownWalk = function*(tree, nodeType) {
         }
     }
 };
+
+module.exports.markdownGetAllLinks = (node) => {
+    const result = [];
+
+    for (const [ , { href } ] of module.exports.markdownWalk(node, 'link')) {
+        result.push(href);
+    }
+
+    return result;
+}
