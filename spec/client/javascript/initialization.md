@@ -248,6 +248,23 @@ Example:
 
 #### Data Attribute Parameters
 
+##### data-namespace
+
+- Optional
+- Default: paypal
+
+Use a different global namespace on the page to export the PayPal SDK.
+
+Example:
+
+```html
+<script src="https://www.paypal.com/sdk/js?client-id=test" data-namespace="paypal_sdk"></script>
+
+<script>
+  paypal_sdk.Foo();
+</script>
+```
+
 ##### data-merchant-id
 
 - Optional
