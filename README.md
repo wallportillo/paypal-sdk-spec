@@ -23,3 +23,15 @@ The following are considered out of scope for this specification:
 - [Standards](./spec/standards/index.md)
 - [Client SDKs](./spec/client/index.md)
 - [Server SDKs](./spec/server/index.md)
+
+## Tags
+
+- `__TODO__`: Placeholder for an interface which needs to be fully specced out
+- `__DEPRECATED__`: Deprecated interface which should be removed fully in the next major release
+
+## Quick Start
+
+```bash
+npm install
+npm start
+```

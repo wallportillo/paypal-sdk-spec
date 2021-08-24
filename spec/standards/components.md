@@ -134,6 +134,11 @@ return (
 <paypal-component foo='bar'></paypal-component>
 ```
 
+### Multi-child components
+
+- __TBD__
+- https://github.com/paypal/paypal-sdk-spec/discussions/11
+
 ## Data Functions
 
 - Re-usable functions
