@@ -1,3 +1,3 @@
 # iOS
 
-- __TBD__
+[Getting Started](./GETTING_STARTED.md)
