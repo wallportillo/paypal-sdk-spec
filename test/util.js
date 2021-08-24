@@ -32,11 +32,15 @@ module.exports.findAllDirectories = (dir) => {
     ];
 };
 
+module.exports.dasherize = (str) => {
+    return str.toLowerCase().replace(/[\s+_]+/g, '-');
+};
+
 module.exports.markdownParseFile = (path) => {
     return markdown.parse(readFileSync(path).toString());
 };
 
-module.exports.markdownWalk = function*(tree, nodeType) {
+module.exports.markdownGetAllElements = function*(tree, nodeType) {
     const [ type, ...nodes ] = tree;
 
     for (const item of nodes) {
@@ -45,17 +49,27 @@ module.exports.markdownWalk = function*(tree, nodeType) {
         }
 
         if (Array.isArray(item)) {
-            yield *module.exports.markdownWalk(item, nodeType);
+            yield *module.exports.markdownGetAllElements(item, nodeType);
         }
     }
 };
 
 module.exports.markdownGetAllLinks = (node) => {
-    const result = [];
+    return Array.from(module.exports.markdownGetAllElements(node, 'link')).map(([ , { href } ]) => {
+        if (!href) {
+            throw new Error(`Link node has no href`);
+        }
 
-    for (const [ , { href } ] of module.exports.markdownWalk(node, 'link')) {
-        result.push(href);
-    }
+        return href;
+    });
+}
 
-    return result;
+module.exports.markdownGetAllHeaders = (node) => {
+    return Array.from(module.exports.markdownGetAllElements(node, 'header')).map(([ ,, headerText ]) => {
+        if (!headerText) {
+            throw new Error(`Header node has no header text`);
+        }
+
+        return headerText;
+    });
 }
