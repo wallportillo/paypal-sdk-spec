@@ -50,10 +50,10 @@ A card brand aware self validating secure numeric text field.
 
 ### Create Card Orders
 
-Create a `CardPayments` instance to create orders using a `Card` object.
+Create a `CardClient` instance to create orders using a `Card` object.
 
 ```kotlin
-  val cardPayments = CardPayments(<AUTH_CREDENTIALS>)
+  val cardClient = CardClient(<AUTH_CREDENTIALS>)
 ```
 
 #### Create Card Orders With DropIn UI
@@ -62,9 +62,28 @@ Create a `CardPayments` instance to create orders using a `Card` object.
 suspend fun createCardOrder() {
   val cardForm = findViewById(R.id.card_form) as CardForm
   cardForm.card?.let { card ->
-    val order = CardOrder(card, "1.00")
-    val orderID = cardPayments.createOrder(order)
-    // send orderID to your server
+
+    val orderRequest = OrderRequest(
+      purchaseUnitList = listOf(
+        PurchaseUnit(
+          amount = Amount(
+            currencyCode = CurrencyCode.USD,
+            value = "10.00"
+          )
+        )
+      )
+    )
+
+    cardClient.executeOrder(orderRequest, card) { result ->
+      when(result) {
+        is Success -> {
+          // transaction was executed
+        }
+        is Failure -> {
+          // error executing transaction
+        }
+      }
+    }
   }
 }
 ```
@@ -79,8 +98,26 @@ suspend fun createCardOrder() {
     securityCode = "123"
   }
 
-  val order = CardOrder(card, "1.00")
-  val orderID = cardPayments.createOrder(order)
-  // send orderID to your server
+  val orderRequest = OrderRequest(
+    purchaseUnitList = listOf(
+      PurchaseUnit(
+        amount = Amount(
+          currencyCode = CurrencyCode.USD,
+          value = "10.00"
+        )
+      )
+    )
+  )
+
+  cardClient.executeOrder(orderRequest, card) { result ->
+    when(result) {
+      is Success -> {
+        // transaction was executed
+      }
+      is Failure -> {
+        // error executing transaction
+      }
+    }
+  }
 }
 ```
