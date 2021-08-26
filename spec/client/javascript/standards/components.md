@@ -34,6 +34,14 @@ paypal.Component({
 }).render('#container');
 ```
 
+#### DOM Node
+
+```javascript
+paypal.Component({
+    foo: 'bar'
+}).render(document.body);
+```
+
 #### Props
 
 ```javascript
@@ -134,10 +142,32 @@ return (
 <paypal-component foo='bar'></paypal-component>
 ```
 
-### Multi-child components
+#### Multi-child components
 
-- __TBD__
-- https://github.com/paypal/paypal-sdk-spec/discussions/11
+```javascript
+const parentComponent = paypal.Parent({ ...parentProps });
+
+parentComponent.FirstChild({ ...firstChildProps })
+    .render('#first-child-container');
+
+parentComponent.SecondChild({ ...secondChildProps })
+    .render('#second-child-container');
+```
+
+#### Multi-child components (React)
+
+```javascript
+return (
+    <paypal.Parent { ...parentProps }>
+        <div id='first-child-container'>
+            <paypal.FirstChild { ...firstChildProps } />
+        </div>
+        <div id='second-child-container'>
+            <paypal.SecondChild { ...secondChildProps } />
+        </div>
+    </paypal.Parent>
+);
+```
 
 ## Data Functions
 
