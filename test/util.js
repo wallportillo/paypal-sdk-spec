@@ -89,7 +89,26 @@ module.exports.getAllCodeBlocks = (node, language) => {
     return Array.from(module.exports.getAllElements(node, [ 'pre' ])).map((node) => {
         return module.exports.htmlParse(node.text).childNodes[0];
     }).filter(node => {
-        return node.classList.contains(`language-${ language }`);
+        if (node.rawTagName !== 'code') {
+            return false;
+        }
+        
+        if (node.classList.contains(`language-${ language }`)) {
+            return true;
+        };
+
+        let foundLanguageClass = false;
+        for (const className of node.classList.values()) {
+            if (className.match(/^language-[\w-]+$/)) {
+                foundLanguageClass = true;
+            }
+        }
+
+        if (!foundLanguageClass) {
+            throw new Error(`Code block has no specified language:\n\n${ node.innerHTML }\n\nClasses: ${ Array.from(node.classList.values()).join(',') }`);
+        }
+
+        return false;
     }).map(node => {
         const code = node.innerHTML;
 
