@@ -1,10 +1,13 @@
 
+const { tmpdir } = require('os');
 const { join } = require('path');
 const klawSync = require('klaw-sync');
 const markdownIt = require('markdown-it');
 const { parse } = require('node-html-parser');
-const { readFileSync } = require('fs-extra');
+const { readFileSync, writeFileSync, existsSync, removeSync } = require('fs-extra');
 const babel = require('@babel/parser');
+const typescript = require('typescript');
+const md5 = require('md5');
 
 const markdown = markdownIt();
 
@@ -42,8 +45,15 @@ module.exports.dasherize = (str) => {
 
 module.exports.htmlParse = (html) => {
     return parse(html, {
-        lowerCaseTagName: true,
-        comment: false
+        lowerCaseTagName: false,
+        comment: false, 
+        blockTextElements: {
+            script: true,
+            noscript: true,
+            style: true,
+            pre: true,
+            code: true
+        }
     });
 };
 
@@ -130,3 +140,51 @@ module.exports.parseJavaScript = (code) => {
         ],
     });
 };
+
+const TYPESCRIPT_ERROR = typescript.Diagnostics;
+
+const TYPESCRIPT_IGNORE_ERRORS = [
+    TYPESCRIPT_ERROR.A_return_statement_can_only_be_used_within_a_function_body,
+    TYPESCRIPT_ERROR.Cannot_find_name_0,
+    TYPESCRIPT_ERROR.await_expressions_are_only_allowed_at_the_top_level_of_a_file_when_that_file_is_a_module_but_this_file_has_no_imports_or_exports_Consider_adding_an_empty_export_to_make_this_file_a_module,
+    TYPESCRIPT_ERROR.Top_level_await_expressions_are_only_allowed_when_the_module_option_is_set_to_esnext_or_system_and_the_target_option_is_set_to_es2017_or_higher
+]
+
+const compilerOptions = typescript.parseJsonConfigFileContent(
+    require('../tsconfig.json'),
+    typescript.sys,
+    '../tsconfig.json'
+);
+
+module.exports.parseTypeScript = (code) => {
+    const filename = `${ md5(`${ code }_${ JSON.stringify(compilerOptions.options) }`) }.snippet.tsx`;
+    const path = join(tmpdir(), filename);
+
+    try {   
+        if (existsSync(path)) {
+            return;
+        } else {
+            writeFileSync(path, code);
+        }
+
+        const program = typescript.createProgram({
+            rootNames: [path],
+            options: compilerOptions.options
+        });
+
+        const diagnostics = typescript.getPreEmitDiagnostics(program);
+
+        for (const diagnostic of diagnostics) {
+            const { messageText, code } = diagnostic;
+
+            if (TYPESCRIPT_IGNORE_ERRORS.find(error => error.code === code)) {
+                continue;
+            }
+
+            throw new Error(`${ messageText } (${ code })`)
+        }
+    } catch (err) {
+        removeSync(path);
+        throw err;
+    }
+}
