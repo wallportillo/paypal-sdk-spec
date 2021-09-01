@@ -24,6 +24,7 @@
   "homepage": "https://github.com/paypal/paypal-sdk-spec#readme",
   "dependencies": {},
   "devDependencies": {
+    "@babel/parser": "^7.15.3",
     "fs-extra": "^10.0.0",
     "jest": "^27.0.6",
     "klaw-sync": "^6.0.0",

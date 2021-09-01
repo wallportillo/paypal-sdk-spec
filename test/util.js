@@ -4,6 +4,7 @@ const klawSync = require('klaw-sync');
 const markdownIt = require('markdown-it');
 const { parse } = require('node-html-parser');
 const { readFileSync } = require('fs-extra');
+const babel = require('@babel/parser');
 
 const markdown = markdownIt();
 
@@ -39,11 +40,15 @@ module.exports.dasherize = (str) => {
     return str.toLowerCase().replace(/[\s+_]+/g, '-');
 };
 
-module.exports.markdownParseFile = (path) => {
-    return parse(markdown.render(readFileSync(path).toString()), {
+module.exports.htmlParse = (html) => {
+    return parse(html, {
         lowerCaseTagName: true,
         comment: false
     });
+};
+
+module.exports.markdownParseFile = (path) => {
+    return module.exports.htmlParse(markdown.render(readFileSync(path).toString()));
 };
 
 module.exports.getAllElements = function*(node, nodeTypes = []) {
@@ -79,3 +84,30 @@ module.exports.getAllHeaders = (node) => {
         return headerText;
     });
 }
+
+module.exports.getAllCodeBlocks = (node, language) => {
+    return Array.from(module.exports.getAllElements(node, [ 'pre' ])).map((node) => {
+        return module.exports.htmlParse(node.text).childNodes[0];
+    }).filter(node => {
+        return node.classList.contains(`language-${ language }`);
+    }).map(node => {
+        const code = node.innerHTML;
+
+        if (!code) {
+            throw new Error(`Code block has no code`);
+        }
+
+        return code;
+    });
+}
+
+module.exports.parseJavaScript = (code) => {
+    return babel.parse(code, {
+        allowAwaitOutsideFunction: true,
+        allowReturnOutsideFunction: true,
+          plugins: [
+            'jsx',
+            'typescript'
+        ],
+    });
+};
