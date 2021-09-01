@@ -1,10 +1,10 @@
 
-const { tmpdir } = require('os');
+const { homedir } = require('os');
 const { join } = require('path');
 const klawSync = require('klaw-sync');
 const markdownIt = require('markdown-it');
 const { parse } = require('node-html-parser');
-const { readFileSync, writeFileSync, existsSync, removeSync } = require('fs-extra');
+const { readFileSync, writeFileSync, existsSync, removeSync, ensureDirSync } = require('fs-extra');
 const babel = require('@babel/parser');
 const typescript = require('typescript');
 const md5 = require('md5');
@@ -159,10 +159,14 @@ const compilerOptions = typescript.parseJsonConfigFileContent(
 );
 
 module.exports.parseTypeScript = (code) => {
+    const dir = join(homedir(), '.cache', 'typescript')
     const filename = `${ md5(`${ code }_${ JSON.stringify(compilerOptions.options) }_${ JSON.stringify(TYPESCRIPT_IGNORE_ERRORS) }`) }.snippet.tsx`;
-    const path = join(tmpdir(), filename);
+    
+    const path = join(dir, filename);
 
-    try {   
+    try {
+        ensureDirSync(dir);
+
         if (existsSync(path)) {
             return;
         } else {
