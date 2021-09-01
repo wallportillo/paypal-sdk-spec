@@ -159,7 +159,7 @@ const compilerOptions = typescript.parseJsonConfigFileContent(
 );
 
 module.exports.parseTypeScript = (code) => {
-    const filename = `${ md5(`${ code }_${ JSON.stringify(compilerOptions.options) }`) }.snippet.tsx`;
+    const filename = `${ md5(`${ code }_${ JSON.stringify(compilerOptions.options) }_${ JSON.stringify(TYPESCRIPT_IGNORE_ERRORS) }`) }.snippet.tsx`;
     const path = join(tmpdir(), filename);
 
     try {   
