@@ -28,4 +28,5 @@ The following may vary between platforms:
   - For example, an iOS feature may be based on functionality only available on iOS
 - Language conventions
   - Including casing, closures, and other language-specific best practices
+- Platform-specific design and communication patterns
 
