@@ -375,6 +375,13 @@ Example:
 <script src="https://www.paypal.com/sdk/js?client-id=test" data-client-metadata-id="XYZ"></script>
 ```
 
+##### data-enable-3ds
+
+- Optional
+- Default: none
+
+Pass to enable 3DS for unbranded payment flows
+
 ## NPM Module
 
 - __TBD__
