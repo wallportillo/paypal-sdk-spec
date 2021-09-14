@@ -31,10 +31,6 @@ public class PayPalClient {
     public func checkout(orderId: String) {
 
     }
-
-    public func checkout(billingAgreement: String) {
-
-    }
 }
 
 let config = PaymentsConfig(clientId: "", returnUrl: "")
@@ -59,10 +55,6 @@ class PayPalClient(val config: PaymentsConfig) {
     var listener: PayPalClientListener? = null
 
     fun checkout(orderId: String) {
-
-    }
-
-    fun checkout(billingAgreement: String) {
 
     }
 }
