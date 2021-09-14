@@ -40,13 +40,31 @@ client.delegate = self
 client.checkout(orderId)
 ```
 
-
 #### Kotlin Interface
 ```kotlin
 interface PayPalClientListener {
+    /**
+     * Invoked when a transaction is approved by the
+     * user and ready for authorization or capture by
+     * the merchant
+     */
     fun onPayPalApprove(data: ApprovalData)
+
+    /**
+     *  Invoked when the checkout experience has been canceled
+     */
     fun onPayPalCancel()
+
+    /**
+     * Invoked when the SDK encounters an unrecoverable error
+     */
     fun onPayPalError(error: PayPalError)
+
+    /**
+     * Invoked when the user wants to change the shipping or
+     * pickup information. Requires merchant response to
+     * confirm the new selection
+     */
     fun onPayPalShippingChange(...)
 }
 
