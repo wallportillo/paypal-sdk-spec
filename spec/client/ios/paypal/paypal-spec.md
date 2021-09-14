@@ -3,26 +3,27 @@ PayPal Spec
 
 #### Swift Interface
 ```swift
-public protocol PayPalClientDelegate {
+public protocol PayPalUIDelegate {
+
     // Invoked when a transaction is approved by the
     // user and ready for authorization or capture by
     // the merchant
-    func paypalDidApprove(client: PayPalClient, data: ApprovalData)
-
-    // Invoked when the checkout experience has been canceled
-    func paypalDidCancel(client: PayPalClient)
+    func paypal(_ paypal: PayPalUI, didApproveWith data: ApprovalData)
 
     // Invoked when the SDK encounters an unrecoverable error
-    func paypalDidError(client: PayPalClient, error: PayPalError)
+    func paypal(_ paypal: PayPalUI, didReceiveError error: PayPalError)
 
     // Invoked when the user wants to change the shipping or
     // pickup information. Requires merchant response to
     // confirm the new selection
-    func paypalShippingChange(client: PayPalClient, ...)
+    func paypal(_ paypal: PayPalUI, didChangeShippingAddress shippingAddress: ShippingAddress)
+
+    // Invoked when the checkout experience has been canceled
+    func paypalDidCancel(_ paypal: PayPalUI)
 }
 
-public class PayPalClient {
-    public weak var delegate: PayPalClientDelegate?
+public class PayPalUI {
+    public weak var delegate: PayPalUIDelegate?
 
     public init(config: PaymentsConfig) {
         ...
@@ -34,7 +35,7 @@ public class PayPalClient {
 }
 
 let config = PaymentsConfig(clientId: "", returnUrl: "")
-let client = PayPalClient(config: config)
+let client = PayPalUI(config: config)
 
 client.delegate = self
 client.checkout(orderId)
@@ -42,7 +43,7 @@ client.checkout(orderId)
 
 #### Kotlin Interface
 ```kotlin
-interface PayPalClientListener {
+interface PayPalUIListener {
     /**
      * Invoked when a transaction is approved by the
      * user and ready for authorization or capture by
@@ -68,9 +69,9 @@ interface PayPalClientListener {
     fun onPayPalShippingChange(...)
 }
 
-class PayPalClient(val config: PaymentsConfig) {
+class PayPalUI(val config: PaymentsConfig) {
 
-    var listener: PayPalClientListener? = null
+    var listener: PayPalUIListener? = null
 
     fun checkout(orderId: String) {
 
@@ -78,14 +79,14 @@ class PayPalClient(val config: PaymentsConfig) {
 }
 
 val config = PaymentsConfig(clientId = "", returnUrl = "")
-val client = PayPalClient(config = config)
+val client = PayPalUI(config = config)
 
 ```
 
 
 ### Improvements
 
-- Fetch merchant configuration from a PayPal backend and infer `returnUrl` to reduce the number of parameters needed when constructing a `PayPalClient`
+- Fetch merchant configuration from a PayPal backend and infer `returnUrl` to reduce the number of parameters needed when constructing a `PayPalUI` instance.
 
 
 ----
