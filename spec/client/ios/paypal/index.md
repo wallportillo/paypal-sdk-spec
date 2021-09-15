@@ -1,4 +1,4 @@
 # PayPal
 
-- [PayPal Spec](./paypal/paypal-spec.md)
-- [PayPal Sample Integration](./paypal/sample-integration.md)
+- [PayPal Spec](./paypal-spec.md)
+- [PayPal Sample Integration](./sample-integration.md)
