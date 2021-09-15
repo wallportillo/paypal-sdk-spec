@@ -66,7 +66,7 @@ interface PayPalUIListener {
      * pickup information. Requires merchant response to
      * confirm the new selection
      */
-    fun onPayPalShippingChange(...)
+    fun onPayPalShippingAddressChange(shippingAddress: ShippingAddress)
 }
 
 class PayPalUI(val config: PaymentsConfig) {
