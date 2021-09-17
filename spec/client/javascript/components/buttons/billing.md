@@ -3,8 +3,6 @@
 ## SDK Initialization
 
 - Pass [`intent=tokenize`](../../initialization.md#intent)
-- Pass [`data-user-id-token`](../../initialization.md#data-user-id-token)
-  - ID Token must contain a `customer_id` field to identify the customer to save the tokenized card under.
 
 ## Billing Agreement Create and Approval Callback
 
