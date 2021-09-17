@@ -40,10 +40,10 @@ const App = () => {
             onApprove={ onApprove }>
 
             <div id="paypal-card-cvv-field-container">
-                <PayPalCardCVVField />
+                <PayPalCardFields.CVVField />
             </div>
 
-            <paypal.Buttons />
+            <PayPalCardFields.Button />
         </PayPalCardFields>
     );
 }
@@ -84,7 +84,7 @@ const App = () => {
             onApprove={ onApprove }>
 
             <div id="paypal-card-cvv-field-container">
-                <PayPalCardCVVField />
+                <PayPalCardFields.CVVField />
             </div>
 
             <button onClick={ submitCard }>

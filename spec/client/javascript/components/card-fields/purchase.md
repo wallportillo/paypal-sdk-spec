@@ -21,7 +21,7 @@ const onApprove = (data, actions) => {
 See:
 
 - [`createOrder`](../../callbacks/createOrder.md)
-- [`onApprove`](../../callbacks/onApprove.md)
+- [`onApprove`](../../callbacks/onApprove-order.md)
 
 ## Button
 
@@ -40,7 +40,7 @@ cardFields.render('#card-field-container');
 const App = () => {
     return (
         <PayPalCardFields createOrder={ createOrder } onApprove={ onApprove }>
-            <paypal.Buttons />
+            <PayPalCardFields.Button />
         </PayPalCardFields>
     );
 }

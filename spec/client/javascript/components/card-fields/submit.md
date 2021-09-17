@@ -18,7 +18,7 @@ cardFields.render('#card-field-container');
 const App = () => {
     return (
         <PayPalCardFields>
-            <paypal.Buttons />
+            <PayPalCardFields.Button />
         </PayPalCardFields>
     );
 }

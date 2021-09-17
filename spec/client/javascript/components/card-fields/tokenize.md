@@ -14,6 +14,10 @@ const onApprove = (data) => {
 };
 ```
 
+See:
+
+- [`onApprove`](../../callbacks/onApprove-tokenize.md)
+
 ## Button
 
 ### Vanilla Javascript
@@ -32,7 +36,7 @@ cardFields.render('#card-field-container');
 const App = () => {
     return (
         <PayPalCardFields onApprove={ onApprove }>
-            <paypal.Buttons />
+            <PayPalCardFields.Button />
         </PayPalCardFields>
     );
 }

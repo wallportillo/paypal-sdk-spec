@@ -38,13 +38,13 @@ const App = () => {
     return (
         <PayPalCardFields>
             <div id="card-number-field-container">
-                <PayPalCardNumberField />
+                <PayPalCardFields.NumberField />
             </div>
             <div id="card-cvv-field-container">
-                <PayPalCardCVVField />
+                <PayPalCardFields.CVVField />
             </div>
             <div id="card-expiry-field-container">
-                <PayPalCardExpiryField />
+                <PayPalCardFields.ExpiryField />
             </div>
         </PayPalCardFields>
     );
@@ -59,7 +59,7 @@ const App = () => {
 const cardFields = paypal.CardFields();
 cardFields.render('#card-field-container');
 
-cardFields.destroy();
+cardFields.close();
 ```
 
 ### Multiple card fields
@@ -71,5 +71,5 @@ cardFields.NumberField().render('#card-number-field-container');
 cardFields.CVVField().render('#card-cvv-field-container');
 cardFields.ExpiryField().render('#card-expiry-field-container');
 
-cardFields.destroy();
+cardFields.close();
 ```

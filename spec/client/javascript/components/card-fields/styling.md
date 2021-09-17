@@ -119,13 +119,13 @@ const App = () => {
     return (
         <PayPalCardFields style={ cardStyle }>
             <div id="card-number-field-container">
-                <PayPalCardNumberField />
+                <PayPalCardFields.NumberField />
             </div>
             <div id="card-cvv-field-container">
-                <PayPalCardCVVField />
+                <PayPalCardFields.CVVField />
             </div>
             <div id="card-expiry-field-container">
-                <PayPalCardExpiryField />
+                <PayPalCardFields.ExpiryField />
             </div>
         </PayPalCardFields>
     );

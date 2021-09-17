@@ -1,4 +1,9 @@
 # Standard Callbacks
 
 - [createOrder](./createOrder.md)
-- [onApprove](./onApprove.md)
+- [createBillingAgreement](./createBillingAgreement.md)
+- [createSubscription](./createSubscription.md)
+- [onApprove:Order](./onApprove-order.md)
+- [onApprove:Billing](./onApprove-billing.md)
+- [onApprove:Tokenize](./onApprove-tokenize.md)
+- [onApprove:Subscription](./onApprove-subscription.md)

@@ -1,8 +1,6 @@
-# On Approve
+# On Approve Order
 
-Callback used to signal buyer approval of a purchase, tokenization, or subscription.
-
-This callback will be invoked whenever the user completes their approval, e.g.
+Callback used to signal buyer approval of a purchase, e.g.
 
 - Successfully entering a card and submitting it
 - Clicking on a button and approving a payment
@@ -82,11 +80,11 @@ type OnApprove = (
 ) => undefined | Promise<undefined>
 
 type OnApproveData = {
-    orderID? : string,
+    orderID : string,
     payerID? : string
 };
 
-type CreateOrderActions = {
+type OnApproveActions = {
     order : {
         get : () =>
             Promise<GetOrderResponse>,
