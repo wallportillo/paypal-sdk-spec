@@ -29,9 +29,10 @@ See:
 
 ```javascript
 const cardFields = paypal.CardFields({ createOrder, onApprove });
+const button = cardFields.Button();
 
-cardFields.Button().render('#card-submit-button-container')
 cardFields.render('#card-field-container');
+button.render('#card-submit-button-container');
 ```
 
 ### React

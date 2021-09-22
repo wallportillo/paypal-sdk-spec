@@ -6,10 +6,10 @@
 
 ```javascript
 const cardFields = paypal.CardFields();
-
-cardFields.Button().render('#card-submit-button-container')
+const button = cardFields.Button();
 
 cardFields.render('#card-field-container');
+button.render('#card-submit-button-container')
 ```
 
 ### React
