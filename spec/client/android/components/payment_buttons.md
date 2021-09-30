@@ -8,7 +8,7 @@ Here are some styled buttons you can add to your application.
 
 ![paypal_button_1](../../../static/paypal_button_1.png)
 
-![paypal_button_2](../../../static/paypal_button_1.png)
+![paypal_button_2](../../../static/paypal_button_2.png)
 
 ```xml
 <com.paypal.checkout.paymentbutton.PayPalButton
