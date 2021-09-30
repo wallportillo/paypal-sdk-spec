@@ -22,7 +22,7 @@ dependencies {
 }
 ```
 
-## Sample Code
+## Components
 
-<!-- TODO: - link to each component spec docs, once complete (spec/client/android/components/) -->
+[Payment Buttons](./components/payment_buttons.md)
 
