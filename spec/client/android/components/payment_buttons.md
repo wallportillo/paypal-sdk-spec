@@ -6,9 +6,9 @@ Here are some styled buttons you can add to your application.
 
 ### PayPalButton
 
-![paypal_button_1](../spec/static/paypal_button_1.png)
+![paypal_button_1](../../../spec/static/paypal_button_1.png)
 
-![paypal_button_2](../spec/static/paypal_button_1.png)
+![paypal_button_2](../../../spec/static/paypal_button_1.png)
 
 ```xml
 <com.paypal.checkout.paymentbutton.PayPalButton
@@ -23,7 +23,7 @@ Here are some styled buttons you can add to your application.
 
 ### PayPalCreditButton
 
-![paypal_button_1](../spec/static/paypal_credit_button.png)
+![paypal_button_1](../../../spec/static/paypal_credit_button.png)
 
 ```xml
 <com.paypal.checkout.paymentbutton.PayPalCreditButton
