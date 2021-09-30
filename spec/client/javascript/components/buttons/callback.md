@@ -5,11 +5,11 @@ Listen for changes in the buyer's preferred shipping address and/or shipping opt
 ## Callback
 
 ```javascript
-paypal.Buttons({
+paypal.Button({
     onShippingChange: (data, actions) => {
         console.log('The user changed shipping address!')
     }
-}).render('#paypal-buttons-container')
+}).render('#paypal-button-container')
 ```
 
 ## Data
@@ -43,7 +43,7 @@ paypal.Buttons({
 #### From your client
 
 ```javascript
-paypal.Buttons({
+paypal.Button({
     onShippingChange: (data, actions) => {
         return actions.order.patch([
             {
@@ -66,13 +66,13 @@ paypal.Buttons({
             }
         ]);
     }
-}).render('#paypal-buttons-container')
+}).render('#paypal-button-container')
 ```
 
 #### From your server
 
 ```javascript
-paypal.Buttons({
+paypal.Button({
     onShippingChange: (data, actions) => {
         return fetch('https://my-server.com/api/paypal/update-shipping-totals', {
             body: JSON.stringify({
@@ -81,17 +81,17 @@ paypal.Buttons({
             })
         });
     }
-}).render('#paypal-buttons-container')
+}).render('#paypal-button-container')
 ```
 
 #### Reject buyer's shipping address
 
 ```javascript
-paypal.Buttons({
+paypal.Button({
     onShippingChange: (data, actions) => {
         if (data.shipping_address.country !== 'US') {
             return actions.reject();
         }
     }
-}).render('#paypal-buttons-container')
+}).render('#paypal-button-container')
 ```

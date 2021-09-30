@@ -19,7 +19,7 @@ Validation allows you to use the button to validate a form, and suppress the but
 ```
 
 ```javascript
-const buttons = paypal.Buttons({
+const buttons = paypal.Button({
     onClick: () => {
         if (!checkbox.checked) {
             errormessage.classList.remove('hidden');
@@ -54,7 +54,7 @@ buttons.render('#paypal-button-container');
 ```
 
 ```javascript
-paypal.Buttons({
+paypal.Button({
     onClick: (data, actions) => {
         if (checkbox.checked) {
             return actions.resolve();

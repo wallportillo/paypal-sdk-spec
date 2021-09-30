@@ -26,10 +26,10 @@ See:
 ### Vanilla Javascript
 
 ```javascript
-paypal.Buttons({
+paypal.Button({
     createSubscription,
     onApprove
-}).render('#paypal-buttons-container');
+}).render('#paypal-button-container');
 ```
 
 ### React
@@ -37,7 +37,7 @@ paypal.Buttons({
 ```javascript
 const App = () => {
     return (
-        <PayPalButtons
+        <PayPalButton
             createSubscription={ createSubscription }
             onApprove={ onApprove }
         />

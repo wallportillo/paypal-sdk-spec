@@ -7,11 +7,11 @@ See also: [Validation](validation.md)
 ## Vanilla Javascript
 
 ```javascript
-paypal.Buttons({
+paypal.Button({
     onClick: (data) => {
         console.log(`The buyer clicked the ${ data.fundingSource } button`);
     }
-}).render('#paypal-buttons-container');
+}).render('#paypal-button-container');
 ```
 
 ## React
@@ -23,7 +23,7 @@ const App = () => {
     };
 
     return (
-        <PayPalButtons
+        <PayPalButton
             onClick={ onClick }
         />
     );

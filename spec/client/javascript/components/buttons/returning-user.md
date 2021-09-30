@@ -15,7 +15,7 @@ By default, if the customer has any vaulted FIs, the buttons will allow the user
 To allow the buyer to pay or skip-login with a specific vaulted instrument, pass the `paymentMethodToken` for that instrument into the button:
 
 ```javascript
-paypal.Buttons({
+paypal.Button({
     fundingSource: paypal.FUNDING.PAYPAL,
     paymentMethodToken: 'xyz123'
 }).render('#paypal-button-container')

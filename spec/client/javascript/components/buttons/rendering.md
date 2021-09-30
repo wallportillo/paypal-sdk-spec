@@ -3,8 +3,8 @@
 ## Vanilla Javascript
 
 ```javascript
-paypal.Buttons()
-    .render('#paypal-buttons-container');
+paypal.Button()
+    .render('#paypal-button-container');
 ```
 
 ## React
@@ -12,7 +12,7 @@ paypal.Buttons()
 ```javascript
 const App = () => {
     return (
-        <PayPalButtons />
+        <PayPalButton />
     );
 }
 ```
@@ -20,7 +20,7 @@ const App = () => {
 ## Teardown
 
 ```javascript
-const buttons = paypal.Buttons();
-buttons.render('#paypal-buttons-container');
+const buttons = paypal.Button();
+buttons.render('#paypal-button-container');
 buttons.close();
 ```

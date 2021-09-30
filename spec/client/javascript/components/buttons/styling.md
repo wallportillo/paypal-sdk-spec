@@ -1,9 +1,5 @@
 # Styling
 
-## Layout
-
-See [Layouts](./layouts.md)
-
 ## Size
 
 ### Width
@@ -15,11 +11,11 @@ Buttons have responsive width: they will take the size of the container element 
 Customize the height of the buttons in pixels.
 
 ```javascript
-paypal.Buttons({
+paypal.Button({
     style: {
         height: 30
     }
-}).render('#paypal-buttons-container');
+}).render('#paypal-button-container');
 ```
 
 - Minimum height: `25`
@@ -32,11 +28,11 @@ Note: due to aspect-ratio requirements for the button, the requested height may 
 Customize the color of the buttons.
 
 ```javascript
-paypal.Buttons({
+paypal.Button({
     style: {
         color: 'blue'
     }
-}).render('#paypal-buttons-container');
+}).render('#paypal-button-container');
 ```
 
 ### Available Colors
@@ -87,11 +83,11 @@ paypal.Buttons({
 Customize the shape of the buttons.
 
 ```javascript
-paypal.Buttons({
+paypal.Button({
     style: {
         shape: 'pill'
     }
-}).render('#paypal-buttons-container');
+}).render('#paypal-button-container');
 ```
 
 ### Available Shapes
@@ -104,11 +100,11 @@ paypal.Buttons({
 Customize the label of the buttons.
 
 ```javascript
-paypal.Buttons({
+paypal.Button({
     style: {
         label: 'pay'
     }
-}).render('#paypal-buttons-container');
+}).render('#paypal-button-container');
 ```
 
 ### Available Labels
@@ -122,11 +118,11 @@ paypal.Buttons({
 Customize the display of the tagline under the buttons.
 
 ```javascript
-paypal.Buttons({
+paypal.Button({
     style: {
         tagline: false
     }
-}).render('#paypal-buttons-container');
+}).render('#paypal-button-container');
 ```
 
 ### Available Taglines

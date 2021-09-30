@@ -23,9 +23,9 @@ See:
 ### Vanilla Javascript
 
 ```javascript
-paypal.Buttons({
+paypal.Button({
     onApprove
-}).render('#paypal-buttons-container');
+}).render('#paypal-button-container');
 ```
 
 ### React
@@ -33,7 +33,7 @@ paypal.Buttons({
 ```javascript
 const App = () => {
     return (
-        <PayPalButtons
+        <PayPalButton
             onApprove={ onApprove }
         />
     );

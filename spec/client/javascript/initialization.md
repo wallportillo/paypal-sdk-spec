@@ -81,7 +81,7 @@ Available components:
 
 Different components export different globals to the `window.paypal` namespace, e.g.
 
-- `buttons` exports `paypal.Buttons`
+- `buttons` exports `paypal.Button`
 - `card-fields` exports `paypal.CardNumberField`, `paypal.CardExpiryField`, etc.
 
 Example:

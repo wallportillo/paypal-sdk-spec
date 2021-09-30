@@ -9,11 +9,11 @@ The onCancel callback will be called any time the buyer explicitly decides to ca
 ## Vanilla Javascript
 
 ```javascript
-paypal.Buttons({
+paypal.Button({
     onCancel: () => {
         // Take the buyer to a cancel page
     }
-}).render('#paypal-buttons-container');
+}).render('#paypal-button-container');
 ```
 
 ## React
@@ -25,7 +25,7 @@ const App = () => {
     };
 
     return (
-        <PayPalButtons
+        <PayPalButton
             onCancel={ onCancel }
         />
     );
