@@ -5,7 +5,7 @@ const { findAllDirectories, markdownParseFile, getAllLinks } = require('./util')
 const { SPEC_ROOT, SPEC_EXTENSION, SPEC_INDEX } = require('./constants');
 
 for (const path of findAllDirectories(SPEC_ROOT)) {
-    test(`Valid index file in ${ path }`, () => {
+    test(`Valid README.md file in ${ path }`, () => {
         const indexFile = `${ SPEC_INDEX }.${ SPEC_EXTENSION }`;
         const indexPath = join(path, indexFile);
 
