@@ -152,7 +152,7 @@ Example:
 <script src="https://www.paypal.com/sdk/js?client-id=test&debug=true"></script>
 ```
 
-##### disable-funding
+##### enable-funding
 
 - Optional
 - Default: empty
