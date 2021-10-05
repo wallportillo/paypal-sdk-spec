@@ -1,13 +1,15 @@
 # Styling
     AuthButton have property to support style , you can pass these valid parameters in style object, button will render based on these input parameters.
-    ```
+```javascript
+    paypal.Buttons({
         style: {
-          color: 'blue',
-          height: 35,
-          label: 'login',
-          shape: 'pill'
+            height: 30,
+            color: 'blue',
+            shape: 'pill',
+            label: 'login'
         }
-    ```
+    }).render('#paypal-buttons-container');
+```
 
 ## Layout
 

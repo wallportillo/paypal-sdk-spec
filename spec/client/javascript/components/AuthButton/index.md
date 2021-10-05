@@ -1,12 +1,20 @@
 # Log in with PayPal [AuthButton]
     Log in with PayPal button is now integrated via JS SDK to Log in with your paypal account from any partner.
-    (Note: this includes the standalone LIPP PayPal button, 
+    (Note: this includes the standalone LIPP PayPal button
+
+```javascript
+    paypal.Buttons({
+        style: {
+            height: 30
+        }
+    }).render('#paypal-buttons-container');
+``` 
 [Layouts](./layouts.md))
 
 ## SDK Initialization
     query params : 
-    1. client-id (mandate)
-    2. component (mandate)
+    1. client-id (mandatory)
+    2. component (mandatory)
     3. locale (optional)
     - url `<script src="https://www.paypal.com/sdk/js?client-id=AWgTAO4QT9psJNA0JC3hPceKj6cwsKhtUjXWR_eBgWya0OyPIgnwUCB96UGDZ6AGggYCO29HfjVTYbY5&components=auth-button"></script> `
     - Pass [`components=auth-button`](../../callbacks/onApprove-consent.md)

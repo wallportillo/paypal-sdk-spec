@@ -20,9 +20,9 @@ The following are considered out of scope for this specification:
 
 ## Contents
 
-- [Standards](./spec/standards/index.md)
-- [Client SDKs](./spec/client/index.md)
-- [Server SDKs](./spec/server/index.md)
+- [Standards](./spec/standards/README.md)
+- [Client SDKs](./spec/client/README.md)
+- [Server SDKs](./spec/server/README.md)
 
 ## Tags
 

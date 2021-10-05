@@ -2,7 +2,7 @@
 
 Callback used to signal partner once user accept the consent
 
-- Successfully return auth_code and id_token
+- Successfully return auth_code and id_token based on responseType provided by partner.
 
 ## Examples
 
@@ -14,7 +14,7 @@ const onApprove = (data) => {
         // Data is an object which have two values either will be auth_code or id_token
         // this return value depends on reponseType parameter 
     });
-}
+};
 ```
 
 ### Capture cancel consent code from paypal
