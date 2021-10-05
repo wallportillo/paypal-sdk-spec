@@ -1,4 +1,4 @@
-# Support
+# Browser Support
 
 - Desktop
   - Chrome version 41 and later
@@ -7,6 +7,7 @@
   - Opera version 12 and later
   - Edge version 14 and later
   - Internet Explorer version 11 and later
+
 - Mobile
   - Chrome version 41 and later
   - Firefox version 15 and later
