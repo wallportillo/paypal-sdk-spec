@@ -1,5 +1,7 @@
 # Styling
-    AuthButton have property to support style , you can pass these valid parameters in style object, button will render based on these input parameters.
+
+AuthButton have property to support style , you can pass these valid parameters in style object, button will render based on these input parameters.
+
 ```javascript
     paypal.Buttons({
         style: {
@@ -11,9 +13,12 @@
     }).render('#paypal-buttons-container');
 ```
 
-## Layout
+## Button label variation
 
-See [Layouts](./layouts.md)
+1. `login` - Log in with PayPal
+2. `connect` - Connect with PayPal
+3. `continue` - Continue with PayPal
+4. `signup` - Sign up with PayPal
 
 ### Width
 
@@ -54,8 +59,6 @@ paypal.Buttons({
 2. silver
 
 #### LIPP PayPal Button
-
-(Note: this includes the standalone PayPal button, and vertical and horizontal [Layouts](./layouts.md))
 
 - `blue` (default)
 - `silver`

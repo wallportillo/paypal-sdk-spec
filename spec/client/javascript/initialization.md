@@ -77,6 +77,7 @@ Available components:
 - [`marks`](./components/marks/README.md)
 - [`messages`](./components/messages/README.md)
 - [`checkout`](./components/checkout/README.md) (internal)
+- [`auth-button`](./components/auth-button/README.md)
 - __TBD__
 
 Different components export different globals to the `window.paypal` namespace, e.g.

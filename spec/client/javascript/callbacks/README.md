@@ -7,4 +7,4 @@
 - [onApprove:Billing](./onApprove-billing.md)
 - [onApprove:Tokenize](./onApprove-tokenize.md)
 - [onApprove:Subscription](./onApprove-subscription.md)
-- [onApprove:Consent](./onApprove-consent.md)
+- [onApprove:Auth](./onApprove-consent.md)
