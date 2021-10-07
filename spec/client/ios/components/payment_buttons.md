@@ -1,14 +1,15 @@
 ## Payment Button Spec
 
 #### Payment Button Delegate
-```swift=
+```swift
+// This delegate can be used by the merchant to start the native checkout flow
 public protocol PaymentButtonDelegate {
     func paymentButtonTapped()
 }
 ```
 
 #### PayPal Button
-```swift=
+```swift
 public class PayPalButton: UIButton {
     /// The color of the PayPal button
     public private(set) var color: PayPalButtonColor
@@ -34,7 +35,7 @@ public class PayPalButton: UIButton {
 ```
 
 #### PayPal Credit Button
-```swift=
+```swift
 public class PayPalCreditButton: UIButton {
     /// The color of the PayPal Credit button
     public private(set) var color: PayPalCreditButtonColor
@@ -56,7 +57,7 @@ public class PayPalCreditButton: UIButton {
 ```
 
 #### PayPal Color Enum
-```swift=
+```swift
 // Colors that can be applied to the PayPal Button only
 public enum PayPalButtonColor: UIColor {
     case darkBlue
@@ -66,7 +67,7 @@ public enum PayPalButtonColor: UIColor {
 ```
 
 #### PayPal Credit Color Enum
-```swift=
+```swift
 // Colors that can be applied to the PayPal Credit Button only
 public enum PayPalCreditButtonColor: UIColor {
     case gold
@@ -78,7 +79,7 @@ public enum PayPalCreditButtonColor: UIColor {
 ```
 
 #### Button Shape Enum
-```swift=
+```swift
 public enum PaymentButtonShape {
     case pill
     case rectangle
@@ -87,7 +88,7 @@ public enum PaymentButtonShape {
 ```
 
 #### Button Size Enum
-```swift=
+```swift
 public enum PaymentButtonSize {
     case small
     case medium
@@ -96,7 +97,7 @@ public enum PaymentButtonSize {
 ```
 
 #### PayPal Button Label Enum
-```swift=
+```swift
 public enum PayPalButtonLabel {
     /// Display "Checkout" on the right side of the button's logo
     case checkout
