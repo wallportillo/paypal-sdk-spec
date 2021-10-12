@@ -4,7 +4,7 @@ Callback used to signal user consent approval from successfully completing the a
 
 ## Examples
 
-### Get auth_code/id_token from paypal
+### Get authorization tokens from paypal
 
 ```javascript
 const onApprove = (data, actions) => {

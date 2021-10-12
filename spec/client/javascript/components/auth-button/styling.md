@@ -82,7 +82,12 @@ paypal.Buttons({
 
 ## Label
 
-Customize the label of the buttons.
+Customize the label of the buttons by providing any one the below label value to style property.
+
+- `continue`
+- `signup`
+- `connect`
+- `login`
 
 ```javascript
 paypal.Buttons({
@@ -92,10 +97,5 @@ paypal.Buttons({
 }).render('#paypal-buttons-container');
 ```
 
-### Available Labels
 
-- `continue`
-- `signup`
-- `connect`
-- `login`
 

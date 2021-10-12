@@ -1,5 +1,4 @@
 # Log in with PayPal [AuthButton]
-Log in with PayPal (LIPP) button is now integrated via JS SDK to Log in with your paypal account from any partner.
 
 # Render Auth Button
 
