@@ -1,10 +1,7 @@
-# Log in with PayPal [AuthButton]
-
-# Render Auth Button
+# Render AuthButton
 
 ## SDK Initialization
 - Pass [`components=auth-button`](../../initialization.md#components)
-
 
 ### Vanilla Javascript
 

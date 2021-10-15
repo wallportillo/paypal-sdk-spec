@@ -1,8 +1,18 @@
-### Scopes
+# Scopes
 
-The merchant will provide a list of scopes to integrate with the AuthButton.
-<div><h2 id="scope-attributes">Scope attributes</h2>
-<p>The following shows how user attributes map to OpenID Connect protocols:</p>
+The `scope` prop is used to request specific information about a user.
+
+```javascript
+paypal.AuthButton({
+    scopes: ['openid', 'profile', 'email', 'address', 'phone']
+    // add rest of your props here
+});
+```
+
+## Common Scopes
+
+The following table shows how user attributes map to scopes.
+
 <table>
 <thead>
 <tr>
@@ -52,23 +62,5 @@ The merchant will provide a list of scopes to integrate with the AuthButton.
 <td>Address Information</td>
 <td><code>address</code></td>
 </tr>
-<tr>
-<td>Account verification status</td>
-<td>Account Information</td>
-<td><a href="https://uri.paypal.com/services/paypalattributes">https://uri.paypal.com/services/paypalattributes</a><br><br>This tells you if the customer has a verified PayPal account.</td>
-</tr>
-<tr>
-<td>PayPal account ID (payer ID)</td>
-<td>Account information</td>
-<td><a href="https://uri.paypal.com/services/paypalattributes">https://uri.paypal.com/services/paypalattributes</a><br><br>This is the user's unique PayPal account ID used in PayPal APIs such as the Payouts API</td>
-</tr>
 </tbody>
 </table></div>
-
-```javascript
-    paypal.AuthButton(
-      {
-        scopes: ["openid", "profile", "email", "address", "phone"],
-        // add rest of your props here
-      });
-```

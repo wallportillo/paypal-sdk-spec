@@ -1,10 +1,10 @@
-# authorization tokens
+# onApprove Auth
 
 Callback used to signal user consent approval from successfully completing the auth button flow.
 
 ## Examples
 
-### Get authorization tokens from paypal
+### Use auth tokens to look up additional buyer info using the PayPal APIs
 
 ```javascript
 const onApprove = (data, actions) => {
@@ -14,19 +14,13 @@ const onApprove = (data, actions) => {
         method: 'POST',
         body: JSON.stringify({
             authCode: data.authCode,
-            idToken: data.idToken
-        })
-    }).then(res => {
+            idToken: data.idToken,
+        }),
+    }).then((res) => {
         // Show a success message to the user
     });
 };
-```
-### Capture cancel consent code from paypal
 
-```javascript
-const onCancel = (data) => {
-    // this value have the cancel code when the user cancel the consent.
-};
 ```
 
 ## Types

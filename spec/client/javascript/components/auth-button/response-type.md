@@ -1,55 +1,28 @@
+## ResponseType
 
-## ResponseType Prop
-
-The `responseType` prop expects one of two possible values (`code`,`id_token`) which determines the output for onApprove callback function.
-
-- [onApprove](../../callbacks/onApprove-consent.md)
+The `responseType` prop expects one of two possible values (`code`, `id_token`) which determines the output for [onApprove callback](../../callbacks/onApprove-auth.md) function.
 
 ### ResponseType `code`
 
 ```javascript
-
-    paypal.AuthButton(
-            {
-            scopes: ["openid", "profile", "email", "address", "phone"],
-            responseType: 'code',   
-                style : {
-                color : 'blue',
-                height: 35,
-                label: 'login',
-                shape: 'pill'
-            },
-            onApprove: data => {
-                // this will return the id token in the payload
-                // data =>  { authCode : "<value>" }
-            },
-            onCancel : function(data){
-                // console.log(data)    
-            }
-            }
-    ).render('#button-container');
+paypal.AuthButton({
+    scopes: ['openid', 'profile', 'email', 'address', 'phone'],
+    responseType: 'code',
+    onApprove: data => {
+        // this will return the `authCode` in the payload
+        // data =>  { authCode : '<value>' }
+    }
+}).render('#auth-button-container');
 ```
 ### ResponseType `id_token`
 
 ```javascript
-    // responseType 'id_token' use case
-    paypal.AuthButton(
-            {
-            scopes: ["openid", "profile", "email", "address", "phone"],
-            responseType: 'id_token',   
-                style : {
-                color : 'blue',
-                height: 35,
-                label: 'login',
-                shape: 'pill'
-            },
-            onApprove: data => {
-                // this will return the id token in the payload
-                // data => { idToken: "<value>", authCode : "<value>" }
-            },
-            onCancel : function(data){
-                // console.log(data)    
-            }
-            }
-    ).render('#button-container');
+paypal.AuthButton({
+    scopes: ['openid', 'profile', 'email', 'address', 'phone'],
+    responseType: 'id_token',
+    onApprove: data => {
+        // this will return the `idToken` and `authCode` in the payload
+        // data => { idToken: '<value>', authCode : '<value>' }
+    }
+}).render('#auth-button-container');
 ```

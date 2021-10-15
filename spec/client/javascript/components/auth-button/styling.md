@@ -1,24 +1,6 @@
 # Styling
 
-AuthButton have property to support style , you can pass these valid parameters in style object, button will render based on these input parameters.
-
-```javascript
-    paypal.Buttons({
-        style: {
-            height: 30,
-            color: 'blue',
-            shape: 'pill',
-            label: 'login'
-        }
-    }).render('#paypal-buttons-container');
-```
-
-## Button label variation
-
-1. `login` - Log in with PayPal
-2. `connect` - Connect with PayPal
-3. `continue` - Continue with PayPal
-4. `signup` - Sign up with PayPal
+## Size
 
 ### Width
 
@@ -29,11 +11,11 @@ Buttons have responsive width: they will take the size of the container element 
 Customize the height of the buttons in pixels.
 
 ```javascript
-paypal.Buttons({
+paypal.AuthButton({
     style: {
         height: 30
     }
-}).render('#paypal-buttons-container');
+}).render('#auth-button-container');
 ```
 
 - Minimum height: `25`
@@ -46,19 +28,14 @@ Note: due to aspect-ratio requirements for the button, the requested height may 
 Customize the color of the buttons.
 
 ```javascript
-paypal.Buttons({
+paypal.AuthButton({
     style: {
         color: 'blue'
     }
-}).render('#paypal-buttons-container');
+}).render('#auth-button-container');
 ```
 
-### Available Colors
-
-1. Blue
-2. silver
-
-#### LIPP PayPal Button
+### Available Colors for AuthButton
 
 - `blue` (default)
 - `silver`
@@ -68,11 +45,11 @@ paypal.Buttons({
 Customize the shape of the buttons.
 
 ```javascript
-paypal.Buttons({
+paypal.AuthButton({
     style: {
         shape: 'pill'
     }
-}).render('#paypal-buttons-container');
+}).render('#auth-button-container');
 ```
 
 ### Available Shapes
@@ -82,20 +59,19 @@ paypal.Buttons({
 
 ## Label
 
-Customize the label of the buttons by providing any one the below label value to style property.
+Customize the label of the buttons.
+
+```javascript
+paypal.AuthButton({
+    style: {
+        label: 'continue'
+    }
+}).render('#auth-button-container');
+```
+
+### Available Labels
 
 - `continue`
 - `signup`
 - `connect`
 - `login`
-
-```javascript
-paypal.Buttons({
-    style: {
-        label: 'login'
-    }
-}).render('#paypal-buttons-container');
-```
-
-
-
