@@ -18,19 +18,22 @@
 ### Android
 
 ```xml
-  <PayPalCardForm
-    android:id="@+id/card_form"
+  <PayPalComponent
+    android:id="@+id/paypal_component"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
   />
 ```
 
 ```kotlin
-  private fun setupPayPalCardForm() {
-    val cardForm = findViewById<PayPalCardForm>(R.id.card_form)
-    cardForm.configure("<CLIENT_ID>", "<CLIENT_SECRET>")
+  private fun setupPayPalComponent() {
+    findViewById<PayPalComponent>(R.id.paypal_component).apply {
+      configure("<CLIENT_ID>", "<CLIENT_SECRET>")
+    }
   }
 ```
+
+## Standard UX Component Examples
 
 # From JIRA
 
