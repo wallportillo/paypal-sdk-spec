@@ -1,17 +1,17 @@
 # Components
 
 - DropIn UX Components
-  * Offer merchants a feature complete low-code integration
   * Lowest integration effort
+  * Offer merchants a feature complete low-code integration
 
 - Standard UX Components
-  * Offer merchants slices of functionality
   * Medium integration effort
+  * Offer merchants slices of functionality
 
 - Feature Clients 
+  * Highest integration effort
   * Offer merchants a fully customizable headless integration
   * May be used alongsize DropIn and Standard UX Components
-  * Highest integration effort
 
 ## DropIn UX Component Examples
 
@@ -27,13 +27,18 @@
 
 ```kotlin
   private fun setupPayPalComponent() {
-    findViewById<PayPalComponent>(R.id.paypal_component).apply {
-      configure("<CLIENT_ID>", "<CLIENT_SECRET>")
-    }
+    val component = findViewById<PayPalComponent>(R.id.paypal_component)
+    component.configure("<CLIENT_ID>", "<CLIENT_SECRET>")
   }
 ```
 
 ## Standard UX Component Examples
+
+__TODO__
+
+## Feature Client Examples
+
+__TODO__
 
 # From JIRA
 
