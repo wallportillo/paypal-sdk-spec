@@ -26,7 +26,7 @@ public class PayPalButton: UIButton {
     weak var delegate: PaymentButtonDelegate?
 
     public init(
-        color: PaymentButtonColor,
+        color: PayPalButtonColor,
         shape: PaymentButtonShape,
         size: PaymentButtonSize,
         label: PayPalButtonLabel? = nil
@@ -56,6 +56,28 @@ public class PayPalCreditButton: UIButton {
 }
 ```
 
+#### PayPal Pay Later Button
+```swift
+public class PayPalPayLaterButton: UIButton {
+    /// The color of the PayPal button
+    public private(set) var color: PayPalPayLaterButtonColor
+
+    /// The shape of the payment button
+    public private(set) var shape: PaymentButtonShape
+
+    /// The size of the payment button
+    public private(set) var size: PaymentButtonSize
+
+    weak var delegate: PaymentButtonDelegate?
+
+    public init(
+        color: PayPalPayLaterButtonColor,
+        shape: PaymentButtonShape,
+        size: PaymentButtonSize
+    )
+}  
+```
+
 #### PayPal Color Enum
 ```swift
 // Colors that can be applied to the PayPal Button only
@@ -70,6 +92,18 @@ public enum PayPalButtonColor: UIColor {
 ```swift
 // Colors that can be applied to the PayPal Credit Button only
 public enum PayPalCreditButtonColor: UIColor {
+    case gold
+    case blue
+    case white
+    case black
+    case silver
+}
+```
+
+#### PayPal Pay Later Color Enum
+```swift
+// Colors that can be applied to the PayPal Pay Later Button only
+public enum PayPalPayLaterButtonColor: UIColor {
     case gold
     case blue
     case white
