@@ -82,9 +82,11 @@ public class PayPalPayLaterButton: UIButton {
 ```swift
 // Colors that can be applied to the PayPal Button only
 public enum PayPalButtonColor: UIColor {
-    case darkBlue
-    case black
+    case gold
+    case blue
     case white
+    case black
+    case silver
 }
 ```
 
@@ -92,11 +94,9 @@ public enum PayPalButtonColor: UIColor {
 ```swift
 // Colors that can be applied to the PayPal Credit Button only
 public enum PayPalCreditButtonColor: UIColor {
-    case gold
-    case blue
-    case white
-    case black
-    case silver
+  case darkBlue
+  case black
+  case white
 }
 ```
 
