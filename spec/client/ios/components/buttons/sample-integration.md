@@ -9,7 +9,7 @@ class PayPalViewController: UIViewController, PaymentButtonDelegate {
       color: .gold,
       shape: .rounded,
       size: .medium,
-      label: .checkout
+      buttonText: .checkout
   )
 
   let payPalCreditButton = PayPalCreditButton(
@@ -18,7 +18,7 @@ class PayPalViewController: UIViewController, PaymentButtonDelegate {
     size: .medium
   )
 
-  let payLaterButton = PayPalPayLaterButtonColor(
+  let payLaterButton = PayPalPayLaterButton(
     color: .silver,
     shape: .rounded,
     size: .medium

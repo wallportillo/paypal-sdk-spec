@@ -21,7 +21,7 @@ public class PayPalButton: UIButton {
     public private(set) var size: PaymentButtonSize
 
     /// The label displayed on the button
-    public private(set) var label: PayPalButtonLabel?
+    public private(set) var buttonText: PayPalButtonLabel?
 
     weak var delegate: PaymentButtonDelegate?
 
@@ -29,7 +29,7 @@ public class PayPalButton: UIButton {
         color: PayPalButtonColor,
         shape: PaymentButtonShape,
         size: PaymentButtonSize,
-        label: PayPalButtonLabel? = nil
+        buttonText: PayPalButtonLabel? = nil
     )
 }  
 ```
