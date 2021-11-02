@@ -6,6 +6,7 @@
 
 - Standalone UX Components
   * Medium integration effort
+  * Used in tandem with feature clients
   * Offer merchants slices of functionality
 
 - Feature Clients 
@@ -50,8 +51,8 @@ private fun setupPayPalStandaloneComponent() {
     findViewById<PayPalStandaloneComponent>(R.id.paypal_standalone_component)
   val payPalRequest = PayPalRequest(standaloneComponent.data)
 
-  val client = PayPalClient("<CLIENT_ID>", "<CLIENT_SECRET>")
-  client.sendRequest(payPalRequest) { result ->
+  val featureClient = PayPalFeatureClient("<CLIENT_ID>", "<CLIENT_SECRET>")
+  featureClient.sendRequest(payPalRequest) { result ->
     when (result) {
       is PayPalResult.Success -> {
         // handle success
@@ -64,11 +65,28 @@ private fun setupPayPalStandaloneComponent() {
 }
 ```
 
-__TODO__
-
 ## Feature Client Examples
 
-__TODO__
+### Android
+
+```kotlin
+private fun setupPayPalFeatureClient() {
+  val client = PayPalClient("<CLIENT_ID>", "<CLIENT_SECRET>")
+  val featureClient = PayPalFeatureClient("<CLIENT_ID>", "<CLIENT_SECRET>")
+
+  // it's up to merchant to instantiate request data
+  val payPalRequest = PayPalRequest(PayPalData())
+  featureClient.sendRequest(payPalRequest) { result ->
+    when (result) {
+      is PayPalResult.Success -> {
+        // handle success
+      },
+      is PayPalResult.Failure -> {
+        // handle failure
+      }
+    }
+  }
+}
 
 # From JIRA
 
