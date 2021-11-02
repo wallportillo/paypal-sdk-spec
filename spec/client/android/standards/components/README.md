@@ -1,38 +1,68 @@
 # Components
 
-- DropIn UX Components
+- Drop-in Components
   * Lowest integration effort
   * Offer merchants a feature complete low-code integration
 
-- Standard UX Components
+- Standalone UX Components
   * Medium integration effort
   * Offer merchants slices of functionality
 
 - Feature Clients 
   * Highest integration effort
   * Offer merchants a fully customizable headless integration
-  * May be used alongsize DropIn and Standard UX Components
+  * May be used alongsize Drop-in and Standard UX Components
 
-## DropIn UX Component Examples
+## Drop-in UX Component Examples
 
 ### Android
 
 ```xml
-  <PayPalComponent
-    android:id="@+id/paypal_component"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-  />
+<PayPalDropInComponent
+  android:id="@+id/paypal_component"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+/>
 ```
 
 ```kotlin
-  private fun setupPayPalComponent() {
-    val component = findViewById<PayPalComponent>(R.id.paypal_component)
-    component.configure("<CLIENT_ID>", "<CLIENT_SECRET>")
-  }
+private fun setupDropInPayPalComponent() {
+  val dropInComponent = findViewById<PayPalComponent>(R.id.paypal_dropin_component)
+  dropInComponent.configure("<CLIENT_ID>", "<CLIENT_SECRET>")
+}
 ```
 
 ## Standard UX Component Examples
+
+### Android
+
+```xml
+<PayPalStandaloneUXComponent
+  android:id="@+id/paypal_standalone_component"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+/>
+```
+
+```kotlin
+private fun setupPayPalStandaloneComponent() {
+  val standaloneComponent =
+    findViewById<PayPalStandaloneComponent>(R.id.paypal_standalone_component)
+  val payPalRequest = PayPalRequest(standaloneComponent.data)
+
+  val client = PayPalClient("<CLIENT_ID>", "<CLIENT_SECRET>")
+  client.sendRequest(payPalRequest) { result ->
+    when (result) {
+      is PayPalResult.Success -> {
+        // handle success
+      },
+      is PayPalResult.Failure -> {
+        // handle failure
+      }
+    }
+  }
+}
+```
 
 __TODO__
 
@@ -68,4 +98,3 @@ Ideal Integrations for Card:
 Ideal Integrations for PayPal:
 - PayPalButton (Lowest effort)
 - PayPalClient (Highest effort)
-
