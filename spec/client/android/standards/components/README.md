@@ -22,8 +22,6 @@
 private fun setupDropInPayPalComponent() {
   val dropInClient = PayPalDropInClient("<CLIENT_ID>", "<CLIENT_SECRET>")
   dropInClient.start(activity)
-
-  startActivityForResult(PayPalDropIn.createIntent(activity))
 }
 ```
 
@@ -80,36 +78,10 @@ private fun setupPayPalFeatureClient() {
       },
       is PayPalResult.Failure -> {
         // handle failure
+      },
+      is PayPalResult.Cancellation -> {
+        // handle cancellation
       }
     }
   }
 }
-
-# From JIRA
-
-Create a spec document outlining the different integration patterns we'll have in the Mobile Northstar SDKs. This spec will act as a blueprint for all modules in the SDK.
-
-Items we might want to add:
-
-- helper functions structure
-  * how do we vend results to the merchant? ("result" structure?) 
-  * how do merchants implement callbacks? (delegation vs callbacks)
-- ux components
-  * how do merchants interact with drop in components
-  * how do they set callbacks on UX components
-- naming conventions for constants and enums
-
-# Scratch
-
-Features (so far):
-- Card
-- PayPal
-
-Ideal Integrations for Card:
-- CardForm (Lowest effort)
-- CardFields
-- CardClient (Highest effort)
-
-Ideal Integrations for PayPal:
-- PayPalButton (Lowest effort)
-- PayPalClient (Highest effort)
