@@ -1,7 +1,8 @@
-# Android
+# Android Client SDK
 
 - [Standards](./standards/README.md)
 - [Getting Started](./GETTING_STARTED.md)
+- [Standards](./standards/README.md)
 
 ## Spec
 
