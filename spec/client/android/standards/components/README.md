@@ -22,6 +22,8 @@
 private fun setupDropInPayPalComponent() {
   val dropInClient = PayPalDropInClient("<CLIENT_ID>", "<CLIENT_SECRET>")
   dropInClient.start(activity)
+
+  startActivityForResult(PayPalDropIn.createIntent(activity))
 }
 ```
 
@@ -51,6 +53,9 @@ private fun setupPayPalStandaloneComponent() {
       },
       is PayPalResult.Failure -> {
         // handle failure
+      },
+      is PayPalResult.Cancellation -> {
+        // handle cancellation
       }
     }
   }
