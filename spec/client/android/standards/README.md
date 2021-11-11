@@ -1,4 +1,3 @@
 # Standards
 
-- [Components](./components/README.md)
-
+- [Components](./components.md)

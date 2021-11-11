@@ -9,7 +9,7 @@
   * Used in tandem with feature clients
   * Offer merchants slices of functionality
 
-- Feature Clients 
+- Feature Clients
   * Highest integration effort
   * Offer merchants a fully customizable headless integration
   * May be used alongsize Drop-in and Standard UX Components
