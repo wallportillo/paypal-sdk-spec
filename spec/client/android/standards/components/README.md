@@ -18,18 +18,10 @@
 
 ### Android
 
-```xml
-<PayPalDropInComponent
-  android:id="@+id/paypal_component"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-/>
-```
-
 ```kotlin
 private fun setupDropInPayPalComponent() {
-  val dropInComponent = findViewById<PayPalComponent>(R.id.paypal_dropin_component)
-  dropInComponent.configure("<CLIENT_ID>", "<CLIENT_SECRET>")
+  val dropInClient = PayPalDropInClient("<CLIENT_ID>", "<CLIENT_SECRET>")
+  dropInClient.start(activity)
 }
 ```
 
