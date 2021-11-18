@@ -31,10 +31,6 @@ class PayPalClient(application: Application, coreConfig: CoreConfig, returnUrl: 
 }
 ```
 
-
 ### Improvements
 
-- Fetch merchant configuration from a PayPal backend and infer `returnUrl` to reduce the number of parameters needed when constructing a `PayPalUI` instance.
-
-
-----
+- Fetch merchant configuration from a PayPal backend and infer `returnUrl` to reduce the number of parameters needed when constructing a `PayPalClient` instance.
