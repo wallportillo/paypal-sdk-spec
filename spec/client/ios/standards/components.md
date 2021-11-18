@@ -86,7 +86,7 @@ import PaymentsCore
         // handle success
       case .failure(let error):
         // handle failure
-      case .cancellation:
+      case .cancellation: // this state only needed when users can opt out of the experience
         // handle cancellation
       }
     }
@@ -102,13 +102,17 @@ private func setupPayPalFeatureClient() {
 
   // it's up to merchant to instantiate request data
   val payPalRequest = PayPalRequest(PayPalData())
-  payPalClient.sendRequest(payPalRequest) { [weak self] state in
+
+  // If the client is responsible of launching a UX flow (ex: PayPal, Venmo) we will
+  // use function names such as `start`. In cases where we are wrapping a network request
+  // we will use function names that represent the action such as `approveOrder`.
+  payPalClient.start/approveOrder(payPalRequest) { [weak self] state in
       switch state {
       case .success(let result):
         // handle success
       case .failure(let error):
         // handle failure
-      case .cancellation:
+      case .cancellation: // this state only needed when users can opt out of the experience
         // handle cancellation
       }
   }
