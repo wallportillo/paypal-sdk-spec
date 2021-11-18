@@ -9,3 +9,5 @@
 [Core](./core/README.md)
 
 [Card](./card/README.md)
+
+[PayPal](./paypal/README.md)

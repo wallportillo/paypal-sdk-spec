@@ -1,92 +1,74 @@
-PayPal Spec
----
+# PayPal Spec
 
-#### Swift Interface
+#### iOS Interface
 ```swift
-public protocol PayPalUIDelegate {
+protocol CheckoutProtocol {
+    typealias CreateOrderCallback = (PayPalCreateOrder) -> Void
+    typealias ApprovalCallback = (PayPalCheckoutApprovalData) -> Void
+    typealias CancelCallback = () -> Void
+    typealias ErrorCallback = (PayPalCheckoutErrorInfo) -> Void
 
-    // Invoked when a transaction is approved by the
-    // user and ready for authorization or capture by
-    // the merchant
-    func paypal(_ paypal: PayPalUI, didApproveWith data: ApprovalData)
+    static func set(config: CoreConfig, returnURL: String)
 
-    // Invoked when the SDK encounters an unrecoverable error
-    func paypal(_ paypal: PayPalUI, didReceiveError error: PayPalError)
-
-    // Invoked when the user wants to change the shipping or
-    // pickup information. Requires merchant response to
-    // confirm the new selection
-    func paypal(_ paypal: PayPalUI, didChangeShippingAddress shippingAddress: ShippingAddress)
-
-    // Invoked when the checkout experience has been canceled
-    func paypalDidCancel(_ paypal: PayPalUI)
+    static func start(
+        presentingViewController: UIViewController?,
+        createOrder: CreateOrderCallback?,
+        onApprove: ApprovalCallback?,
+        onCancel: CancelCallback?,
+        onError: ErrorCallback?
+    )
 }
 
-public class PayPalUI {
-    public weak var delegate: PayPalUIDelegate?
+public class PayPalClient {
 
-    public init(config: PaymentsConfig) {
-        ...
+    private let config: CoreConfig
+    private let returnURL: String
+
+    public init(config: CoreConfig, returnURL: String) {
+        self.config = config
+        self.returnURL = returnURL
+        self.CheckoutFlow = Checkout.self
     }
 
-    public func checkout(orderId: String) {
+    init(config: CoreConfig, returnURL: String, checkoutFlow: CheckoutProtocol.Type) {
+        self.config = config
+        self.returnURL = returnURL
+        self.CheckoutFlow = checkoutFlow
+    }
 
+    public func start(
+        orderID: String,
+        presentingViewController: UIViewController? = nil,
+        completion: @escaping (PayPalCheckoutResult) -> Void
+    ) {
+        CheckoutFlow.set(config: config, returnURL: returnURL)
+
+        CheckoutFlow.start(
+            presentingViewController: presentingViewController,
+            createOrder: { order in
+                order.set(orderId: orderID)
+            },
+            onApprove: { approval in
+                let payPalResult = PayPalResult(
+                    orderID: approval.ecToken,
+                    payerID: approval.payerID
+                )
+                completion(.success(result: payPalResult))
+            },
+            onCancel: {
+                completion(.cancellation)
+            },
+            onError: { errorInfo in
+                completion(.failure(error: PayPalError.nativeCheckoutSDKError(errorInfo)))
+            }
+        )
     }
 }
-
-let config = PaymentsConfig(clientId: "", returnUrl: "")
-let client = PayPalUI(config: config)
-
-client.delegate = self
-client.checkout(orderId)
 ```
-
-#### Kotlin Interface
-```kotlin
-interface PayPalUIListener {
-    /**
-     * Invoked when a transaction is approved by the
-     * user and ready for authorization or capture by
-     * the merchant
-     */
-    fun onPayPalApprove(data: ApprovalData)
-
-    /**
-     *  Invoked when the checkout experience has been canceled
-     */
-    fun onPayPalCancel()
-
-    /**
-     * Invoked when the SDK encounters an unrecoverable error
-     */
-    fun onPayPalError(error: PayPalError)
-
-    /**
-     * Invoked when the user wants to change the shipping or
-     * pickup information. Requires merchant response to
-     * confirm the new selection
-     */
-    fun onPayPalShippingAddressChange(shippingAddress: ShippingAddress)
-}
-
-class PayPalUI(val config: PaymentsConfig) {
-
-    var listener: PayPalUIListener? = null
-
-    fun checkout(orderId: String) {
-
-    }
-}
-
-val config = PaymentsConfig(clientId = "", returnUrl = "")
-val client = PayPalUI(config = config)
-
-```
-
 
 ### Improvements
 
-- Fetch merchant configuration from a PayPal backend and infer `returnUrl` to reduce the number of parameters needed when constructing a `PayPalUI` instance.
+- Fetch merchant configuration from a PayPal backend and infer `returnUrl` to reduce the number of parameters needed when constructing a `PayPalClient` instance.
 
 
 ----
