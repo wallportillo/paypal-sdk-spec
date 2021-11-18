@@ -1,7 +1,11 @@
 # Components
 
+- UI Components
+  * Low integration effort
+  * View layer components, useful for branding, custom buttons, etc.
+
 - Drop-in Components
-  * Lowest integration effort
+  * Low integration effort
   * Offer merchants a feature complete low-code integration
 
 - Controlled UI Components
@@ -10,13 +14,30 @@
   * Offer merchants slices of functionality
 
 - Feature Clients
-  * Highest integration effort
+  * High integration effort
   * Offer merchants a fully customizable headless integration
   * May be used alongsize Drop-in and Controlled UI Components
 
-## Drop-in UX Component Examples
+## UI Component Examples
 
-### Android
+```xml
+<PayPalUIComponent
+  android:id="@+id/paypal_ui_component"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+/>
+```
+
+```kotlin
+private fun setupPayPalUIComponent() {
+  val uiComponent = findViewById<PayPalUIComponent>(R.id.paypal_ui_component)
+  uiComponent.onClickListener = { view ->
+    // handle click interaction
+  }
+}
+```
+
+## Drop-in Component Examples
 
 ```kotlin
 private fun setupDropInPayPalComponent() {
@@ -27,8 +48,6 @@ private fun setupDropInPayPalComponent() {
 ```
 
 ## Controlled UI Component Examples
-
-### Android
 
 ```xml
 <PayPalControlledUIComponent
@@ -53,9 +72,6 @@ private fun setupPayPalControlledUIComponent() {
       },
       is PayPalResult.Failure -> {
         // handle failure
-      },
-      is PayPalResult.Cancellation -> {
-        // handle cancellation
       }
     }
   }
@@ -63,8 +79,6 @@ private fun setupPayPalControlledUIComponent() {
 ```
 
 ## Feature Client Examples
-
-### Android
 
 ```kotlin
 private fun setupPayPalFeatureClient() {
@@ -80,9 +94,6 @@ private fun setupPayPalFeatureClient() {
       },
       is PayPalResult.Failure -> {
         // handle failure
-      },
-      is PayPalResult.Cancellation -> {
-        // handle cancellation
       }
     }
   }
