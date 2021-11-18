@@ -20,7 +20,8 @@
 
 ```kotlin
 private fun setupDropInPayPalComponent() {
-  val dropInClient = PayPalDropInClient("<CLIENT_ID>", "<CLIENT_SECRET>")
+  val config = CoreConfig(clientId = "<CLIENT_ID>")
+  val dropInClient = PayPalDropInClient(config = config)
   dropInClient.start(activity)
 }
 ```
@@ -43,7 +44,8 @@ private fun setupPayPalStandaloneComponent() {
     findViewById<PayPalStandaloneComponent>(R.id.paypal_standalone_component)
   val payPalRequest = PayPalRequest(standaloneComponent.data)
 
-  val featureClient = PayPalFeatureClient("<CLIENT_ID>", "<CLIENT_SECRET>")
+  val config = CoreConfig(clientId = "<CLIENT_ID>")
+  val featureClient = PayPalFeatureClient(config = config)
   featureClient.sendRequest(payPalRequest) { result ->
     when (result) {
       is PayPalResult.Success -> {
@@ -66,8 +68,8 @@ private fun setupPayPalStandaloneComponent() {
 
 ```kotlin
 private fun setupPayPalFeatureClient() {
-  val client = PayPalClient("<CLIENT_ID>", "<CLIENT_SECRET>")
-  val featureClient = PayPalFeatureClient("<CLIENT_ID>", "<CLIENT_SECRET>")
+  val config = CoreConfig(clientId = "<CLIENT_ID>")
+  val featureClient = PayPalFeatureClient(config = config)
 
   // it's up to merchant to instantiate request data
   val payPalRequest = PayPalRequest(PayPalData())
