@@ -4,7 +4,7 @@
   * Lowest integration effort
   * Offer merchants a feature complete low-code integration
 
-- Standalone UX Components
+- Controlled UI Components
   * Medium integration effort
   * Used in tandem with feature clients
   * Offer merchants slices of functionality
@@ -12,7 +12,7 @@
 - Feature Clients
   * Highest integration effort
   * Offer merchants a fully customizable headless integration
-  * May be used alongsize Drop-in and Standard UX Components
+  * May be used alongsize Drop-in and Controlled UI Components
 
 ## Drop-in UX Component Examples
 
@@ -26,23 +26,23 @@ private fun setupDropInPayPalComponent() {
 }
 ```
 
-## Standard UX Component Examples
+## Controlled UI Component Examples
 
 ### Android
 
 ```xml
-<PayPalStandaloneUXComponent
-  android:id="@+id/paypal_standalone_component"
+<PayPalControlledUIComponent
+  android:id="@+id/paypal_controlled_ui_component"
   android:layout_width="match_parent"
   android:layout_height="wrap_content"
 />
 ```
 
 ```kotlin
-private fun setupPayPalStandaloneComponent() {
-  val standaloneComponent =
-    findViewById<PayPalStandaloneComponent>(R.id.paypal_standalone_component)
-  val payPalRequest = PayPalRequest(standaloneComponent.data)
+private fun setupPayPalControlledUIComponent() {
+  val controlledUIComponent =
+    findViewById<PayPalControlledUIComponent>(R.id.paypal_controlled_ui_component)
+  val payPalRequest = PayPalRequest(controlledUIComponent.data)
 
   val config = CoreConfig(clientId = "<CLIENT_ID>")
   val featureClient = PayPalFeatureClient(config = config)
