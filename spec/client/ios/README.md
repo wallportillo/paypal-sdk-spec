@@ -4,6 +4,8 @@
 
 [Initialization](./initialization.md)
 
-### PayPal
+## Spec
 
-- [PayPal](./paypal/index.md)
+[Core](./core/README.md)
+
+[Card](./card/README.md)

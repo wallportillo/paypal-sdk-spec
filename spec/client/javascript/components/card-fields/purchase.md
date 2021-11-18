@@ -21,7 +21,7 @@ const onApprove = (data, actions) => {
 See:
 
 - [`createOrder`](../../callbacks/createOrder.md)
-- [`onApprove`](../../callbacks/onApprove.md)
+- [`onApprove`](../../callbacks/onApprove-order.md)
 
 ## Button
 
@@ -29,9 +29,10 @@ See:
 
 ```javascript
 const cardFields = paypal.CardFields({ createOrder, onApprove });
+const button = cardFields.Button();
 
-cardFields.Button().render('#card-submit-button-container')
 cardFields.render('#card-field-container');
+button.render('#card-submit-button-container');
 ```
 
 ### React
@@ -40,7 +41,7 @@ cardFields.render('#card-field-container');
 const App = () => {
     return (
         <PayPalCardFields createOrder={ createOrder } onApprove={ onApprove }>
-            <paypal.Buttons />
+            <PayPalCardFields.Button />
         </PayPalCardFields>
     );
 }

@@ -158,14 +158,14 @@ parentComponent.SecondChild({ ...secondChildProps })
 
 ```javascript
 return (
-    <paypal.Parent { ...parentProps }>
+    <Parent { ...parentProps }>
         <div id='first-child-container'>
-            <paypal.FirstChild { ...firstChildProps } />
+            <Parent.FirstChild { ...firstChildProps } />
         </div>
         <div id='second-child-container'>
-            <paypal.SecondChild { ...secondChildProps } />
+            <Parent.SecondChild { ...secondChildProps } />
         </div>
-    </paypal.Parent>
+    </Parent>
 );
 ```
 
