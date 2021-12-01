@@ -42,9 +42,10 @@
 ```swift
 import PayPalDropIn
 
-func showDropIn(clientID: "client_id_here") {
+func showDropIn() {
+    let config = CoreConfig(clientID: "client_id_here", environment: .sandbox)
     let request =  PayPalDropInRequest()
-    let dropIn = PayPalDropInController(clientID: clientID, request: request)
+    let dropIn = PayPalDropInController(config: config, request: request)
     {
       ...
     }
