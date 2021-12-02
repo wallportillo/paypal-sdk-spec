@@ -32,7 +32,7 @@ The PayPal iOS SDK is comprised of various submodules:
 To accept a certain payment method in your app, you only need to include that payment-specific submodule.
 
 ## Components
-[Payment Buttons](./components/buttons/buttons-spec.md)
+[PayPal Payment Buttons](./components/paypal-buttons/buttons-spec.md)
 
 ## Sample Code
 

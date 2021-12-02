@@ -61,7 +61,20 @@ class PayPalViewController: UIViewController {
     }
 
     func paymentButtonTapped() {
-      // launch PayPal / PayPal Credit / Pay Later flow        
+        // launch PayPal / PayPal Credit / Pay Later flow
+        let config = CoreConfig(clientID: "client_id", environment: .sandbox)
+        let payPalClient = PayPalClient(config: config, returnURL: "return_url")
+
+        payPalClient.start(orderID: orderID, presentingViewController: self) { state in
+            switch state {
+            case .success(let result):
+                // handle success
+            case .failure(let error):
+                // handle failure
+            case .cancellation:
+                // handle cancellation
+            }
+        }     
     }
 }
 ```

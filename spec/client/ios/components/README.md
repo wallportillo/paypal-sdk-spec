@@ -1,3 +1,3 @@
 # iOS Components
 
-- [Payment Buttons](./buttons/README.md)
+- [PayPal Payment Buttons](./paypal-buttons/README.md)

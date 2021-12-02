@@ -1,4 +1,4 @@
-## Payment Button Spec
+## PayPal Payment Button Spec
 
 #### PayPal Button
 ```swift

@@ -1,4 +1,4 @@
-# Buttons
+# PayPal Payment Buttons
 
 - [Spec](./buttons-spec.md)
 - [Sample integration](./sample-integration.md)
