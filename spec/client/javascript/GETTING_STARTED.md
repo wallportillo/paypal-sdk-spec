@@ -56,7 +56,7 @@ paypal.Button().render('#paypal-button-container');
 ```
 
 ## Validation
-Once the above code has been run you should see the `#paypal-buttons-container` populated with an iframe containing the button stack. Clicking on a button will launch a popup window for the checkout flow.
+Once the above code has been run you should see the `#paypal-button-container` populated with an iframe containing the button stack. Clicking on a button will launch a popup window for the checkout flow.
 
 ## Troubleshooting
 If you do not see visibile buttons on the screen then ensure your clientID is correct and that you are loading the sdk script from the proper environment.
