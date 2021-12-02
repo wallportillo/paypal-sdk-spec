@@ -12,7 +12,7 @@ paypal.Button({ fundingSource: paypal.FUNDING.PAYPAL })
 ### Multiple standalone buttons
 
 ```javascript
-const paypalButton = paypal.Buttons({ fundingSource: paypal.FUNDING.PAYPAL });
+const paypalButton = paypal.Button({ fundingSource: paypal.FUNDING.PAYPAL });
 const venmoButton = paypal.Buttons({ fundingSource: paypal.FUNDING.VENMO });
 const creditButton = paypal.Buttons({ fundingSource: paypal.FUNDING.CREDIT });
 
