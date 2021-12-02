@@ -13,8 +13,8 @@ paypal.Button({ fundingSource: paypal.FUNDING.PAYPAL })
 
 ```javascript
 const paypalButton = paypal.Button({ fundingSource: paypal.FUNDING.PAYPAL });
-const venmoButton = paypal.Buttons({ fundingSource: paypal.FUNDING.VENMO });
-const creditButton = paypal.Buttons({ fundingSource: paypal.FUNDING.CREDIT });
+const venmoButton = paypal.Button({ fundingSource: paypal.FUNDING.VENMO });
+const creditButton = paypal.Button({ fundingSource: paypal.FUNDING.CREDIT });
 
 if (paypalButton.isEligible()) {
     paypalButton.render('#paypal-button-container');
@@ -33,9 +33,9 @@ if (creditButton.isEligible()) {
 
 ```javascript
 paypal.getFundingSources().forEach(fundingSource => {
-    const button = paypal.Buttons({ fundingSource });
+    const button = paypal.Button({ fundingSource });
     if (button.isEligible()) {
-        button.render('#buttons-container');
+        button.render(`#button-container-${fundingSource}`);
     }
 });
 ```

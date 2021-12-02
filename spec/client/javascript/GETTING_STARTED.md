@@ -29,7 +29,7 @@ Sample Code:
 ```
 
 ```js
-window.paypal.Buttons().render('#paypal-buttons-container');
+window.paypal.Button().render('#paypal-button-container');
 ```
 
 2. You can install as a module from npm.
@@ -52,7 +52,7 @@ try {
   console.error(error);
 }
 
-paypal.Buttons().render('#paypal-buttons-container');
+paypal.Button().render('#paypal-button-container');
 ```
 
 ## Validation
