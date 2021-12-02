@@ -3,25 +3,43 @@
 ### Basic button integration
 
 ```swift
-class PayPalViewController: UIViewController, PaymentButtonDelegate {
+class PayPalViewController: UIViewController {
 
+  // defaults to gold color, rounded shape, medium size
+  let payPalButton = PayPalButton()
+
+  // OR
+
+  // can pass in customizations
   let payPalButton = PayPalButton(
-      color: .gold,
-      shape: .rounded,
-      size: .medium,
+      color: .black,
+      shape: .pill,
+      size: .large,
       buttonText: .checkout
   )
 
+  // defaults to dark blue color, rounded shape, medium size
+  let payPalCreditButton = PayPalCreditButton()
+
+  // OR
+
+  // can pass in customizations
   let payPalCreditButton = PayPalCreditButton(
-    color: .darkBlue,
-    shape: .rounded,
-    size: .medium
+    color: .white,
+    shape: .pill,
+    size: .large
   )
 
+  // defaults to gold color, rounded shape, medium size
+  let payLaterButton = PayPalPayLaterButton()
+
+  // OR
+
+  // can pass in customizations
   let payLaterButton = PayPalPayLaterButton(
     color: .silver,
-    shape: .rounded,
-    size: .medium
+    shape: .rectangle,
+    size: .large
   )
 
     override func viewDidLoad() {
@@ -32,6 +50,10 @@ class PayPalViewController: UIViewController, PaymentButtonDelegate {
         view.addSubview(payPalButton)
         view.addSubview(payPalCreditButton)
         view.addSubview(payLaterButton)
+
+        payPalButton.addTarget(self, action: #selector(paymentButtonTapped), for: .touchUpInside)
+        payPalCreditButton.addTarget(self, action: #selector(paymentButtonTapped), for: .touchUpInside)
+        payLaterButton.addTarget(self, action: #selector(paymentButtonTapped), for: .touchUpInside)
 
         NSLayoutConstraint.activate([
           // setup button constraints  

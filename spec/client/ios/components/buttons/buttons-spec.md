@@ -1,16 +1,10 @@
 ## Payment Button Spec
 
-#### Payment Button Delegate
-```swift
-// This delegate can be used by the merchant to start the native checkout flow
-public protocol PaymentButtonDelegate {
-    func paymentButtonTapped()
-}
-```
-
 #### PayPal Button
 ```swift
-public class PayPalButton: UIButton {
+/// Configuration for PayPal button
+public class PayPalButton: PaymentButton {
+
     /// The color of the PayPal button
     public private(set) var color: PayPalButtonColor
 
@@ -23,12 +17,10 @@ public class PayPalButton: UIButton {
     /// The label displayed on the button
     public private(set) var buttonText: PayPalButtonLabel?
 
-    weak var delegate: PaymentButtonDelegate?
-
     public init(
-        color: PayPalButtonColor,
-        shape: PaymentButtonShape,
-        size: PaymentButtonSize,
+        color: PayPalButtonColor = .gold,
+        shape: PaymentButtonShape = .rounded,
+        size: PaymentButtonSize = .medium,
         buttonText: PayPalButtonLabel? = nil
     )
 }  
@@ -36,7 +28,9 @@ public class PayPalButton: UIButton {
 
 #### PayPal Credit Button
 ```swift
+/// Configuration for PayPal Credit button
 public class PayPalCreditButton: UIButton {
+
     /// The color of the PayPal Credit button
     public private(set) var color: PayPalCreditButtonColor
 
@@ -46,19 +40,19 @@ public class PayPalCreditButton: UIButton {
     /// The size of the payment button
     public private(set) var size: PaymentButtonSize
 
-    weak var delegate: PaymentButtonDelegate?
-
     public init(
-        color: PayPalCreditButtonColor,
-        shape: PaymentButtonShape,
-        size: PaymentButtonSize
+        color: PayPalCreditButtonColor = .darkBlue,
+        shape: PaymentButtonShape = .rounded,
+        size: PaymentButtonSize = .medium
     )
 }
 ```
 
 #### PayPal Pay Later Button
 ```swift
+/// Configuration for PayPal Pay  button
 public class PayPalPayLaterButton: UIButton {
+
     /// The color of the PayPal button
     public private(set) var color: PayPalPayLaterButtonColor
 
@@ -67,8 +61,6 @@ public class PayPalPayLaterButton: UIButton {
 
     /// The size of the payment button
     public private(set) var size: PaymentButtonSize
-
-    weak var delegate: PaymentButtonDelegate?
 
     public init(
         color: PayPalPayLaterButtonColor,
