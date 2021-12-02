@@ -11,22 +11,43 @@ To use the PayPal module in a merchant application:
 ### PayPal Integration Sample Code
 
 ```kotlin
-class MerchantActivity {
+class MerchantActivity : AppCompatActivity() {
 
-  val coreConfig = CoreConfig("client_id", environment = Environment.SANDBOX)
-  var payPalClient = PayPalClient(application: application, coreConfig: coreConfig, returnUrl: "return_url")
+    private val coreConfig = CoreConfig(
+        clientId = "client_id",
+        environment = Environment.SANDBOX
+    )
 
-  payPalClient.checkout(orderId: "order_id") { result ->
-    when (result) {
-      is PayPalResult.Success -> {
-        // handle success
-      },
-      is PayPalResult.Failure -> {
-        // handle failure
-      },
-      is PayPalResult.Cancellation -> {
-        // handle cancellation
-      }
-  }
+    private val payPalClient = PayPalClient(
+        application = application,
+        coreConfig = coreConfig,
+        returnUrl = "return_url"
+    )
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        ...
+
+        findViewById<Button>(R.id.paypal_button).setOnClickListener {
+            startPayPalCheckout()
+        }
+    }
+
+    private fun startPayPalCheckout() {
+        payPalClient.checkout(orderId = "order_id") { result ->
+            when (result) {
+                is PayPalResult.Success -> {
+                    // handle success
+                }
+                is PayPalResult.Failure -> {
+                    // handle failure
+                }
+                is PayPalResult.Cancellation -> {
+                    // handle cancellation
+                }
+            }
+        }
+    }
 }
 ```
