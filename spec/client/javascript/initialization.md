@@ -72,11 +72,11 @@ Components which should be loaded as part of the SDK. Comma-separated, dashed na
 
 Available components:
 
-- [`buttons`](./components/buttons/index.md)
-- [`card-fields`](./components/card-fields/index.md)
-- [`marks`](./components/marks/index.md)
-- [`messages`](./components/messages/index.md)
-- [`checkout`](./components/checkout/index.md) (internal)
+- [`buttons`](./components/buttons/README.md)
+- [`card-fields`](./components/card-fields/README.md)
+- [`marks`](./components/marks/README.md)
+- [`messages`](./components/messages/README.md)
+- [`checkout`](./components/checkout/README.md) (internal)
 - __TBD__
 
 Different components export different globals to the `window.paypal` namespace, e.g.
@@ -152,7 +152,7 @@ Example:
 <script src="https://www.paypal.com/sdk/js?client-id=test&debug=true"></script>
 ```
 
-##### disable-funding
+##### enable-funding
 
 - Optional
 - Default: empty
@@ -384,5 +384,21 @@ Pass to enable 3DS for unbranded payment flows
 
 ## NPM Module
 
-- __TBD__
-- https://github.com/paypal/paypal-sdk-spec/discussions/10
+```sh
+npm install @paypal/paypal-js
+```
+
+```js
+import { loadScript } from "paypal";
+
+const configuration = {
+  clientID: '<YOUR_CLIENT_ID>',
+};
+
+try {
+  await loadScript(configuration)
+} catch(error) {
+  console.error(error);
+}
+```
+

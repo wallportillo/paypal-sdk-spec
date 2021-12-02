@@ -1,4 +1,4 @@
 # Checkout
 
 - [Rendering](./rendering.md)
-- [Props](./props/index.md)
+- [Props](./props/README.md)
