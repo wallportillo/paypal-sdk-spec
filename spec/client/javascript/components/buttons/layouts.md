@@ -5,7 +5,7 @@
 ### Single, standalone PayPal button
 
 ```javascript
-paypal.Buttons({ fundingSource: paypal.FUNDING.PAYPAL })
+paypal.Button({ fundingSource: paypal.FUNDING.PAYPAL })
     .render('#paypal-button-container');
 ```
 
