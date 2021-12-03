@@ -7,14 +7,14 @@
   - e.g. Buttons, Card Fields
 - Data Functions
   - Accept data, do something, return data
-      - We vend results using the Result type when possible
+      - We use async/await to vend the success or failure when possible
   - No associated UX
   - e.g. API wrapper functions
 - Constants/Enums
   - Logical grouping of values
   - e.g. country codes, order status
-- Callbacks vs Delegates
-    - onApprove/onError/onCancel will be passed back to merchants as `<Feature>Result` enum with success/failure/cancellation inside a single callback (completion block).
+- Callbacks vs Delegates vs Async/Await
+    - The preference is to use async/await over callbacks or delegates - in these cases if a cancellation state is needed, we will pass the cancellation back as a case on the error enum
     - Other optional callbacks (ie onShippingChange) will be optional delegate
 
 ## UX Components
@@ -97,25 +97,21 @@ import PaymentsCore
 #### Feature Client Example
 
 ```swift
-private func setupPayPalFeatureClient() {
+// If the client is responsible of launching a UX flow (ex: PayPal, Venmo) we will
+// use function names such as `start`. In cases where we are wrapping a network request
+// we will use function names that represent the action such as `approveOrder`.
+func setupPayPalFeatureClient() async {
   let config = CoreConfig(clientID: "client_id_here", environment: .sandbox)
   let payPalClient = PayPalClient(config: config, returnURL: "")
 
   // it's up to merchant to instantiate request data
-  val payPalRequest = PayPalRequest(PayPalData())
+  var payPalRequest = PayPalRequest(PayPalData())
 
-  // If the client is responsible of launching a UX flow (ex: PayPal, Venmo) we will
-  // use function names such as `start`. In cases where we are wrapping a network request
-  // we will use function names that represent the action such as `approveOrder`.
-  payPalClient.start/approveOrder(payPalRequest) { [weak self] state in
-      switch state {
-      case .success(let result):
+    do {
+        let result = try await payPalClient.approveOrderAsync(request: payPalRequest)
         // handle success
-      case .failure(let error):
-        // handle failure
-      case .cancellation: // this state only needed when users can opt out of the experience
-        // handle cancellation
-      }
-  }
+    } catch let error {
+      // handle error / cancellation
+    }
 }
 ```
