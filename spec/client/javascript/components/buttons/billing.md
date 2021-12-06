@@ -27,8 +27,8 @@ See:
 
 ```javascript
 paypal.Buttons({
-    createBillingAgreement,
-    onApprove
+    createBillingAgreement: () => { /* createBillingAgreement logic here */ },
+    onApprove: () => { /* onApprove logic here */ }
 }).render('#paypal-buttons-container');
 ```
 

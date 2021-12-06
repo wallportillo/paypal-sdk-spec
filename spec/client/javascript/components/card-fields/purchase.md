@@ -28,7 +28,10 @@ See:
 ### Vanilla Javascript
 
 ```javascript
-const cardFields = paypal.CardFields({ createOrder, onApprove });
+const cardFields = paypal.CardFields({
+    createOrder: () => { /* createOrder logic here */ },
+    onApprove: () => { /* onApprove logic here */ }
+});
 const button = cardFields.Button();
 
 cardFields.render('#card-field-container');
@@ -53,8 +56,8 @@ const App = () => {
 
 ```javascript
 const cardFields = paypal.CardFields({
-    createOrder,
-    onApprove
+    createOrder: () => { /* createOrder logic here */ },
+    onApprove: () => { /* onApprove logic here */ }
 });
 
 cardFields.render('#card-field-container');
