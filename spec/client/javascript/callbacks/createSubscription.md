@@ -13,7 +13,7 @@ This callback will be invoked whenever the user takes an action which requires a
 ```javascript
 const createSubscription = (data, actions) => {
     return actions.subscription.create({
-        __TBD__
+        __TBD__: 'TBD'
     });
 }
 ```
