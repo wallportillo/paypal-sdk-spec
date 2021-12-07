@@ -29,8 +29,8 @@ See:
 
 ```javascript
 paypal.Buttons({
-    createOrder,
-    onApprove
+    createOrder: () => { /* createOrder logic here */ },
+    onApprove: () => { /* onApprove logic here */ }
 }).render('#paypal-buttons-container');
 ```
 

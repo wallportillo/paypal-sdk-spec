@@ -27,8 +27,8 @@ See:
 
 ```javascript
 paypal.Buttons({
-    createSubscription,
-    onApprove
+    createSubscription: () => { /* createSubscription logic here */ },
+    onApprove: () => { /* onApprove logic here */ }
 }).render('#paypal-buttons-container');
 ```
 
