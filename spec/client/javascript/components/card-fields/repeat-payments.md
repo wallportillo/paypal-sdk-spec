@@ -20,9 +20,9 @@ const paymentMethodToken = 'xyz';
 
 ```javascript
 const cardFields = paypal.CardFields({
-    paymentMethodToken,
-    createOrder,
-    onApprove
+    paymentMethodToken: paymentMethodToken,
+    createOrder: () => { /* createOrder logic here */ },
+    onApprove: () => { /* onApprove logic here */ }
 });
 
 cardFields.CVVField().render('#card-cvv-field-container')
@@ -55,9 +55,9 @@ const App = () => {
 
 ```javascript
 const cardFields = paypal.CardFields({
-    paymentMethodToken,
-    createOrder,
-    onApprove
+    paymentMethodToken: paymentMethodToken,
+    createOrder: () => { /* createOrder logic here */ },
+    onApprove: () => { /* onApprove logic here */ }
 });
 
 cardFields.render('#card-field-container');
